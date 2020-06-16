@@ -72,5 +72,5 @@ Navigator.pop(context);
 
 ## 동적 Routes 활용
 
-\`동적 route란?
+`동적 routes란?`
 
