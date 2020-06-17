@@ -9,7 +9,7 @@ const mkdirp = require('mkdirp');
 
 exports.onPreBootstrap = ({ store }) => {
   const { program } = store.getState();
-  const dir = `${program.directory}/wiki`;
+  const dir = `${program.directory}/TI`;
 
   if (!fs.existsSync(dir)) {
     mkdirp.sync(dir);
@@ -55,8 +55,8 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       rules: [
         {
           test: /\.js$/,
-          include: path.dirname(require.resolve('gatsby-theme-wiki')),
-          use: [loaders.js()],
+          include: path.dirname(require.resolve('til')),
+          use: [loaders.js()]
         },
       ],
     },
