@@ -49,16 +49,16 @@ exports.createPages = ({ actions, graphql }) => {
 };
 
 // Process this site as a theme when installed as a package from npm
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  actions.setWebpackConfig({
-    module: {
-      rules: [
-        {
-          test: /\.js$/,
-          include: path.dirname(require.resolve('til')),
-          use: [loaders.js()]
-        },
-      ],
-    },
-  });
-};
+// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+//   actions.setWebpackConfig({
+//     module: {
+//       rules: [
+//         {
+//           test: /\.js$/,
+//           include: path.dirname(require.resolve('')),
+//           use: [loaders.js()]
+//         },
+//       ],
+//     },
+//   });
+// };
