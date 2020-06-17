@@ -1,3 +1,7 @@
+---
+title: "About"
+path: "/about"
+---
 # Today I Learned
 
 > 2020 06 15 ~

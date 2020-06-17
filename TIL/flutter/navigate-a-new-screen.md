@@ -1,3 +1,7 @@
+---
+title: "Navigate a new screen"
+path: "/flutter/navigate-a-new-screen"
+---
 # Navigate a new screen
 
 HTML을 사용할 떄는 `a` 태그를 사용했고 React에서는 `react-router-dom' React Native에서는`react-native-router-flux\`을 사용해서 라우팅을 했었다.
