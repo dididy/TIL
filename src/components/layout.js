@@ -13,8 +13,6 @@ import './layout.css';
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 deckDeckGoHighlightElement();
 
-
-const isMobile = window.innerWidth <= 576;
 const styles = {
   content: {
     margin: `0 auto`,
@@ -40,7 +38,6 @@ const Layout = ({ children, toggleDrawer, onClickDrawerButton }) => (
         <div>
           <Drawer
             open={toggleDrawer}
-            variant={isMobile ? 'temporary' : 'persistent'}
           >
             <div>
               <IconButton onClick={onClickDrawerButton}>
