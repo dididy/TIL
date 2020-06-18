@@ -249,17 +249,11 @@ class NavTree extends Component {
 
     return (
       <div className={this.props.className}>
-        <h4
-          style={{
-            marginLeft: '1.45rem',
-          }}
-        >
-          Articles
-        </h4>
         <TreeView
           data={tree}
           textField="text"
           expandField="opened"
+          expandIcons={true}
           itemRender={NavItem}
           onExpandChange={this.toggleItemExpansion}
           onItemClick={this.toggleItemExpansion}

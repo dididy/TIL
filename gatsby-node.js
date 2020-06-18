@@ -9,7 +9,7 @@ const mkdirp = require('mkdirp');
 
 exports.onPreBootstrap = ({ store }) => {
   const { program } = store.getState();
-  const dir = `${program.directory}/TI`;
+  const dir = `${program.directory}/TIL`;
 
   if (!fs.existsSync(dir)) {
     mkdirp.sync(dir);

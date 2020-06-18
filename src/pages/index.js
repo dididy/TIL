@@ -1,15 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Redirect } from '@reach/router' // highlight-line
 
-import Layout from '../components/layout';
-import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
-
-deckDeckGoHighlightElement();
-
-const IndexPage = () => (
-  <Layout>
-    <Link to="/about">About</Link>
-  </Layout>
-);
+const IndexPage = () => <Redirect noThrow to={`/about/`} /> // highlight-line
 
 export default IndexPage;
