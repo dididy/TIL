@@ -1,6 +1,10 @@
-import React from 'react';
-import { Redirect } from '@reach/router' // highlight-line
+import React from "react"
+import { Redirect, Location } from "@reach/router" // highlight-line
 
-const IndexPage = () => <Redirect noThrow to={`/about/`} /> // highlight-line
 
-export default IndexPage;
+const IndexPage = (location) => {
+  const url = `/${location.location.pathname}/about`
+  return <Redirect noThrow to={url} />
+}
+
+export default IndexPage

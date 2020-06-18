@@ -10,10 +10,14 @@ import Sidebar from './sidebar';
 
 import '@progress/kendo-theme-default/dist/all.css';
 import './layout.css';
+import './layout-custom.css';
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 deckDeckGoHighlightElement();
 
 const styles = {
+  drawer: {
+    minWdith: 300,
+  },
   content: {
     margin: `0 auto`,
     maxWidth: 960,
@@ -37,9 +41,10 @@ const Layout = ({ children, toggleDrawer, onClickDrawerButton }) => (
       <>
         <div>
           <Drawer
+            style={styles.drawer}
             open={toggleDrawer}
           >
-            <div>
+            <div className="sidebar">
               <IconButton onClick={onClickDrawerButton}>
                 <ChevronLeftIcon />
               </IconButton>
