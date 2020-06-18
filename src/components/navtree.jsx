@@ -15,15 +15,16 @@ const ITEMS_IN_STORAGE = ['expandedItems'];
  * @param {object} props
  */
 const NavItem = ({ item }) => {
-  if (!item.directory) {
+  const {directory, path, title} = item;
+  if (!directory) {
     return (
-      <Link className="nav nav-link" to={item.path}>
-        {item.title}
+      <Link className="nav nav-link" to={path}>
+        {title}
       </Link>
     );
   }
 
-  return <p className="nav nav-directory">{item.directory}</p>;
+  return <p className="nav nav-directory">{directory}</p>;
 };
 
 /**
@@ -52,7 +53,7 @@ const NavItem = ({ item }) => {
  *  }
  * ]
  */
-class NavTree extends Component {
+export default class NavTree extends Component {
   constructor(props) {
     super(props);
 
@@ -81,8 +82,8 @@ class NavTree extends Component {
    * Retrieve desired state keys from storage, apply them to state
    */
   async restoreStateKeysFromStorage() {
-    return await Promise.all(
-      ITEMS_IN_STORAGE.map(key => {
+    await Promise.all(
+      ITEMS_IN_STORAGE.map((key) => {
         const data = restoreFromLocalStorage(key);
 
         return new Promise(async (resolve, reject) => {
@@ -91,7 +92,7 @@ class NavTree extends Component {
               {
                 [key]: data,
               },
-              resolve
+              resolve,
             );
           } else if (data === null) {
             // There was no data to retrieve
@@ -101,7 +102,7 @@ class NavTree extends Component {
             reject();
           }
         });
-      })
+      }),
     );
   }
 
@@ -109,9 +110,7 @@ class NavTree extends Component {
    * Put desired state keys into storage
    */
   storeStateKeysInStorage() {
-    ITEMS_IN_STORAGE.forEach(key =>
-      persistToLocalStorage(key, this.state[key])
-    );
+    ITEMS_IN_STORAGE.forEach((key) => persistToLocalStorage(key, this.state[key]));
   }
 
   /**
@@ -122,7 +121,7 @@ class NavTree extends Component {
   updateTree(actions = []) {
     this.setState(
       { tree: this.kendoConvert(actions) },
-      this.storeStateKeysInStorage
+      this.storeStateKeysInStorage,
     );
   }
 
@@ -134,12 +133,12 @@ class NavTree extends Component {
   collapseChildrenItems({ directory }) {
     if (directory) {
       this.setState(
-        state => ({
+        (state) => ({
           expandedItems: state.expandedItems.filter(
-            item => !item.ancestors.includes(directory)
+            (item) => !item.ancestors.includes(directory),
           ),
         }),
-        this.updateTree
+        this.updateTree,
       );
     }
   }
@@ -154,7 +153,7 @@ class NavTree extends Component {
       const { expandedItems } = this.state;
       const key = item.directory;
       const included = !!expandedItems.find(
-        ({ directory }) => directory === key
+        ({ directory }) => directory === key,
       );
 
       this.setState(
@@ -171,7 +170,7 @@ class NavTree extends Component {
             // The item has been expanded, update the tree
             this.updateTree();
           }
-        }
+        },
       );
     }
   }
@@ -206,9 +205,8 @@ class NavTree extends Component {
     const { tree } = this.props;
 
     return tree[0]
-      ? tree[0].links.map(item =>
-          this.convertTreeToKendoTree(item, [], actions)
-        )
+      ? tree[0].links.map((item) =>
+        this.convertTreeToKendoTree(item, [], actions))
       : [];
   }
 
@@ -223,9 +221,9 @@ class NavTree extends Component {
   convertTreeToKendoTree(item, parentAncestors = [], actions = []) {
     const { expandedItems } = this.state;
     const opened = !!expandedItems.find(
-      ({ directory }) => directory === item.directory
+      ({ directory }) => directory === item.directory,
     );
-    const childAncestors = !!item.directory
+    const childAncestors = item.directory
       ? [...parentAncestors, item.directory]
       : parentAncestors;
 
@@ -233,9 +231,8 @@ class NavTree extends Component {
       text: item.directory ? item.directory : item.title,
       opened,
       items: Array.isArray(item.links)
-        ? item.links.map(childItem =>
-            this.convertTreeToKendoTree(childItem, childAncestors, actions)
-          )
+        ? item.links.map((childItem) =>
+          this.convertTreeToKendoTree(childItem, childAncestors, actions))
         : [],
       ancestors: parentAncestors,
       ...item,
@@ -253,7 +250,7 @@ class NavTree extends Component {
           data={tree}
           textField="text"
           expandField="opened"
-          expandIcons={true}
+          expandIcons
           itemRender={NavItem}
           onExpandChange={this.toggleItemExpansion}
           onItemClick={this.toggleItemExpansion}

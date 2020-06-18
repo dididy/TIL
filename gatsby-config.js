@@ -1,56 +1,56 @@
 const config = {
-  start_url: `/`,
-  background_color: `#663399`,
-  theme_color: `#663399`,
+  start_url: '/',
+  background_color: '#663399',
+  theme_color: '#663399',
 };
 
 module.exports = {
-  pathPrefix: "/til",
+  pathPrefix: '/til',
   siteMetadata: {
-    title: `TIL`,
-    description: `Today I Learned`,
-    author: `@dididy`,
+    title: 'TIL',
+    description: 'Today I Learned',
+    author: '@dididy',
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-plugin-page-creator`,
+      resolve: 'gatsby-plugin-page-creator',
       options: {
         path: `${__dirname}/src/pages`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `markdown`,
-        path: `./TIL`,
+        name: 'markdown',
+        path: './TIL',
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         gfm: true,
         plugins: [
           {
-            resolve: `gatsby-remark-highlight-code`,
+            resolve: 'gatsby-remark-highlight-code',
             options: {
               terminal: 'carbon',
-             }
+            },
           },
         ],
       },
-    },    
+    },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: 'gatsby-starter-default',
+        short_name: 'starter',
         start_url: config.start_url,
         background_color: config.background_color,
         theme_color: config.theme_color,
-        display: `minimal-ui`,
+        display: 'minimal-ui',
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
@@ -63,7 +63,7 @@ module.exports = {
         start_url: config.start_url,
         background_color: config.background_color,
         theme_color: config.theme_color,
-        display: `standalone`,
+        display: 'standalone',
       },
     },
     'gatsby-plugin-offline',

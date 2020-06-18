@@ -22,15 +22,21 @@
     "gatsby-source-filesystem": "^2.3.11",
     "gatsby-transformer-remark": "^2.8.15",
     "gatsby-transformer-sharp": "^2.5.5",
+    "mkdirp": "^1.0.4",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "eslint": "^7.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",
-    "prettier": "2.0.5"
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "prettier": "2.0.5",
+    "react-router-dom": "^5.2.0"
   },
   "keywords": [
     "gatsby"
@@ -44,7 +50,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "lint": "eslint --ext "
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",

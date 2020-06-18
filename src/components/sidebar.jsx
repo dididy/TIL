@@ -1,8 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-
-import { parseLinksToTree } from '../utils/parse-links-to-tree';
-
+import parseLinksToTree from '../utils/parse-links-to-tree';
 import { NavTree } from './navtree';
 import './sidebar.css';
 
@@ -27,5 +26,13 @@ const Sidebar = ({ className }) => (
     )}
   />
 );
+
+Sidebar.defaultProps = {
+  className: '',
+};
+
+Sidebar.propTypes = {
+  className: PropTypes.string,
+};
 
 export default Sidebar;

@@ -10,26 +10,26 @@ export default function Template({ data }) {
 
   const [state, setState] = useState({
     toggleDrawer: true,
-  })
+  });
 
   const { toggleDrawer } = state;
-  
+
   function handleClickDrawerButton() {
     setState({
       toggleDrawer: !toggleDrawer,
-    })
+    });
   }
 
   return (
     <div>
-    <Header onClickDrawerButton={() => handleClickDrawerButton()} />
-    <Layout toggleDrawer={toggleDrawer} onClickDrawerButton={() => handleClickDrawerButton()}>
-      <Helmet title={`Wiki - ${post.frontmatter.title}`} />
-      <div>
-        {/* <h1>{post.frontmatter.title}</h1> */}
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
-    </Layout>
+      <Header onClickDrawerButton={() => handleClickDrawerButton()} />
+      <Layout toggleDrawer={toggleDrawer} onClickDrawerButton={() => handleClickDrawerButton()}>
+        <Helmet title={`Wiki - ${post.frontmatter.title}`} />
+        <div>
+          {/* <h1>{post.frontmatter.title}</h1> */}
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </div>
+      </Layout>
     </div>
 
   );

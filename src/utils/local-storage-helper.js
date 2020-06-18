@@ -28,7 +28,7 @@ export const persistToLocalStorage = (key, data) => {
  *
  * @param {string} key data to retrieve and parse
  */
-export const restoreFromLocalStorage = key => {
+export const restoreFromLocalStorage = (key) => {
   if (hasStorage()) {
     return JSON.parse(localStorage.getItem(key));
   }

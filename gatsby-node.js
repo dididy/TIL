@@ -3,7 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-const path = require('path');
+// const path = require('path');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 
@@ -19,7 +19,7 @@ exports.onPreBootstrap = ({ store }) => {
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  const wikiPostTemplate = require.resolve(`./src/templates/wiki-post.js`);
+  const wikiPostTemplate = require.resolve('./src/templates/wiki-post.jsx');
 
   return graphql(`
     {
@@ -33,12 +33,12 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
       return Promise.reject(result.errors);
     }
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    return result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
         path: node.frontmatter.path,
         component: wikiPostTemplate,

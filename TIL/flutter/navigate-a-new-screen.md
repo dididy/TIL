@@ -58,9 +58,16 @@ Navigator.pop(context)
 
 그냥 간단하게 화면 이동을 위해 BuildContext 객체가 필요하다고 생각하면 된다.
 
-`MaterialPageRoute란?`
+</details>
+<br/>
+
+<details>
+<summary>MaterialPageRoute란?</summary>
+​
+<br/>
 
 Material App의 룩앤필에 맞는 화면 전환을 해주는 클래스이다. 어떤 화면으로 이동할지 구체적은 내용을 정의할 수 있으며 인자로 BuildContext 객체를 받아 새로운 페이지에 해당하는\(`NextPage()`\) 위젯을 반환한다.
+
 </details>
 <br/>
 
