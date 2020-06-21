@@ -27,20 +27,13 @@ path: '/tdd'
 
 > [Setup](https://testing-library.com/docs/react-testing-library/setup)
 
-
-- npm 
-
 ```shell
 npm i -D jest babel-jest @types/jest @testing-library/react @testing-library/jest-dom
 ```
-
-- `.eslintrc.js`의 `env` 객체에 `jest: true` 추가해야 jest에 대한 린트 옵션 동작
-
-- execute
-
 ```shell
 npx jest --watchAll --coverage
 ```
+- `.eslintrc.js`의 `env` 객체에 `jest: true` 추가해야 jest에 대한 린트 옵션 동작
 
 - `jest.config.js`를 만들어서 테스트할 때 마다 필요한 `import '@testing-library/jest-dom';`을 안써줘도 됨
 
