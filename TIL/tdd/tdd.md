@@ -1,5 +1,5 @@
 ---
-title: '테스트 코드 작성 팁'
+title: 'TDD'
 path: '/tdd'
 ---
 
@@ -27,12 +27,14 @@ path: '/tdd'
 
 > [Setup](https://testing-library.com/docs/react-testing-library/setup)
 
-```shell
+```bash
+# install
 npm i -D jest babel-jest @types/jest @testing-library/react @testing-library/jest-dom
-```
-```shell
+
+# execute
 npx jest --watchAll --coverage
 ```
+
 - `.eslintrc.js`의 `env` 객체에 `jest: true` 추가해야 jest에 대한 린트 옵션 동작
 
 - `jest.config.js`를 만들어서 테스트할 때 마다 필요한 `import '@testing-library/jest-dom';`을 안써줘도 됨
@@ -69,7 +71,7 @@ npx jest --watchAll --coverage
 
 ## Jest
 
-> [Mock Functions](https://jestjs.io/docs/en/mock-functions)]
+> [Mock Functions](https://jestjs.io/docs/en/mock-functions)
 
 - jest.fn()
   - 단위 테스트를 작성할 때, 해당 코드가 의존하는 부분을 가짜로 대체하는 기법
@@ -81,7 +83,7 @@ npx jest --watchAll --coverage
 - jest.spyOn()
   - 어떤 객체에 속한 함수의 구현을 가짜로 대체하지 않고, 해당 함수의 호출 여부와 어떻게 호출되었는지만을 알아내야 할 경우
 
-> [Using Matchers](https://jestjs.io/docs/en/using-matchers)]
+> [Using Matchers](https://jestjs.io/docs/en/using-matchers)
 
 - mocking
   - toBeCalled
