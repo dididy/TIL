@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 
@@ -26,7 +27,6 @@ export default function Template({ data }) {
       <Layout toggleDrawer={toggleDrawer} onClickDrawerButton={() => handleClickDrawerButton()}>
         <Helmet title={`Wiki - ${post.frontmatter.title}`} />
         <div>
-          {/* <h1>{post.frontmatter.title}</h1> */}
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </div>
       </Layout>
@@ -34,6 +34,30 @@ export default function Template({ data }) {
 
   );
 }
+
+Template.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.shape({
+        path: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+      }),
+      html: PropTypes.string.isRequired,
+    }),
+  }),
+};
+
+Template.defaultProps = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.shape({
+        path: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+      }),
+      html: PropTypes.string.isRequired,
+    }),
+  }),
+};
 
 export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {

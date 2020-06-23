@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { TreeView } from '@progress/kendo-react-treeview';
-
 import {
   persistToLocalStorage,
   restoreFromLocalStorage,
@@ -15,7 +15,7 @@ const ITEMS_IN_STORAGE = ['expandedItems'];
  * @param {object} props
  */
 const NavItem = ({ item }) => {
-  const {directory, path, title} = item;
+  const { directory, path, title } = item;
   if (!directory) {
     return (
       <Link className="nav nav-link" to={path}>
@@ -25,6 +25,22 @@ const NavItem = ({ item }) => {
   }
 
   return <p className="nav nav-directory">{directory}</p>;
+};
+
+NavItem.propTypes = {
+  item: PropTypes.shape({
+    directory: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }),
+};
+
+NavItem.defaultProps = {
+  item: PropTypes.shape({
+    directory: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }),
 };
 
 /**
