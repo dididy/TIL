@@ -1,0 +1,154 @@
+---
+title: 'React'
+path: '/react'
+---
+# React
+
+## [Dom element](https://reactjs.org/docs/dom-elements.html)
+
+HTML과 다르게 작동하는 Attribute
+
+> onChange
+
+- form field가 변경될 때 이벤트가 발생함
+- 의도적으로 기존 브라우저의 동작을 사용하지 않음
+- React는 기존 브라우저와 별개로 실시간으로 유저 입력을 처리하는 이벤트에 의존함
+
+> value
+
+- `<input>`과 `<textarea>` 컴포넌트에 의해 지원됨
+- 컴포넌트의 값을 설정할 수 있음
+- 제어 컴포넌트를 만드는데 유용함
+- `defaultValue` 비제어 컴포넌트에서 사되는 동등한 의미를 가지는 Attribute
+- 처음 마운트될 때 컴포넌트의 값을 설정
+
+> dangerouslySetInnerHTML
+
+- 브라우저 DOM에서 `innerHTML`을 사용하기 위한 방법
+- 코드에 HTML을 설정하게 되면 XSS(cross-site-scripting) 쉽게 노출될 수 있음
+  - React DOM은 렌더링 되기 전에 jsx 내에 포함된 모든 값을 문자열로 바꾸기 때문에 기본적으로 XSS를 막을 수 있음
+- 위험하담는걸 상기시키기 위한 Attribute이고 `__html`키로 객체를 전달해야 함
+
+```javascript
+function createMarkup() {
+  return {__html: 'First &middot; Second'};
+}
+
+function MyComponent() {
+  return <div dangerouslySetInnerHTML={createMarkup()} />;
+}
+```
+
+
+
+## [Typechecking With PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
+
+- 타입확인을 통해 bug를 잡을 수 있도록 도와줌
+
+- React에 내장되어 있으므로 Flow나 Typescript를 사용하지 않더라도  사용 가능
+
+> PropTypes
+
+- 아래와 같이 유효성 검사를 할 수 있음
+
+```javascript
+import PropTypes from 'prop-types';
+
+MyComponent.propTypes = {
+  // prop가 특정 JS 형식임을 선언할 수 있습니다.
+  // 이것들은 기본적으로 모두 선택 사항입니다.
+  optionalArray: PropTypes.array,
+  optionalBool: PropTypes.bool,
+  optionalFunc: PropTypes.func,
+  optionalNumber: PropTypes.number,
+  optionalObject: PropTypes.object,
+  optionalString: PropTypes.string,
+  optionalSymbol: PropTypes.symbol,
+
+  // 랜더링 될 수 있는 것들은 다음과 같습니다.
+  // 숫자(numbers), 문자(strings), 엘리먼트(elements), 또는 이러한 타입들(types)을 포함하고 있는 배열(array) (혹은 배열의 fragment)
+  optionalNode: PropTypes.node,
+
+  // React 엘리먼트.
+  optionalElement: PropTypes.element,
+
+  // React 엘리먼트 타입 (ie. MyComponent)
+  optionalElementType: PropTypes.elementType,
+
+  // prop가 클래스의 인스턴스임을 선언할 수 있습니다.
+  // 이 경우 JS's instanceof 연산자를 사용합니다.
+  optionalMessage: PropTypes.instanceOf(Message),
+
+  // 열거형(enum)으로 처리하여 prop가 특정 값들로 제한되도록 할 수 있습니다.
+  optionalEnum: PropTypes.oneOf(['News', 'Photos']),
+
+  // 여러 종류중 하나의 종류가 될 수 있는 객체
+  optionalUnion: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.instanceOf(Message)
+  ]),
+
+  // 특정 타입의 행렬
+  optionalArrayOf: PropTypes.arrayOf(PropTypes.number),
+
+  // 특정 타입의 프로퍼티 값들을 갖는 객체
+  optionalObjectOf: PropTypes.objectOf(PropTypes.number),
+
+  // 특정 형태를 갖는 객체
+  optionalObjectWithShape: PropTypes.shape({
+    color: PropTypes.string,
+    fontSize: PropTypes.number
+  }),
+
+  // An object with warnings on extra properties
+  optionalObjectWithStrictShape: PropTypes.exact({
+    name: PropTypes.string,
+    quantity: PropTypes.number
+  }),
+
+  // 위에 있는 것 모두 `isRequired`와 연결하여 prop가 제공되지 않았을 때
+  // 경고가 보이도록 할 수 있습니다.
+  requiredFunc: PropTypes.func.isRequired,
+
+  // 모든 데이터 타입이 가능한 값
+  requiredAny: PropTypes.any.isRequired,
+
+  // 사용자 정의 유효성 검사기를 지정할 수도 있습니다.
+  // 검사 실패 시에는 에러(Error) 객체를 반환해야 합니다.
+  // `oneOfType`안에서는 작동하지 않으므로 `console.warn` 혹은 throw 하지 마세요.
+  customProp: function(props, propName, componentName) {
+    if (!/matchme/.test(props[propName])) {
+      return new Error(
+        'Invalid prop `' + propName + '` supplied to' +
+        ' `' + componentName + '`. Validation failed.'
+      );
+    }
+  },
+
+  // `arrayOf` 와 `objectOf 에 사용자 정의 유효성 검사기를 적용할 수 있습니다.
+  // 검사 실패 시에는 에러(Error) 객체를 반환해야 합니다.
+  // 유효성 검사기는 배열(array) 혹은 객체의 각 키(key)에 대하여 호출될 것입니다.
+  // 유효성 검사기의 첫 두 개의 변수는 배열 혹은 객체 자신과 현재 아이템의 키입니다.
+
+  customArrayProp: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
+    if (!/matchme/.test(propValue[key])) {
+      return new Error(
+        'Invalid prop `' + propFullName + '` supplied to' +
+        ' `' + componentName + '`. Validation failed.'
+      );
+    }
+  })
+};
+```
+
+
+
+> PropTypes.elemet
+
+- 컴포넌트의 Children에 단 하나의 Child만 전달될 수 있도록 명시 가능
+
+> defaultProps
+
+- `props`의 초기값을 정의함
+
