@@ -27,7 +27,7 @@ HTML과 다르게 작동하는 Attribute
 - 브라우저 DOM에서 `innerHTML`을 사용하기 위한 방법
 - 코드에 HTML을 설정하게 되면 XSS(cross-site-scripting) 쉽게 노출될 수 있음
   - React DOM은 렌더링 되기 전에 jsx 내에 포함된 모든 값을 문자열로 바꾸기 때문에 기본적으로 XSS를 막을 수 있음
-- 위험하담는걸 상기시키기 위한 Attribute이고 `__html`키로 객체를 전달해야 함
+- 위험하다는걸 상기시키기 위한 Attribute이고 `__html`키로 객체를 전달해야 함
 
 ```javascript
 function createMarkup() {
@@ -39,13 +39,11 @@ function MyComponent() {
 }
 ```
 
-
+---
 
 ## [Typechecking With PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
 
-- 타입확인을 통해 bug를 잡을 수 있도록 도와줌
-
-- React에 내장되어 있으므로 Flow나 Typescript를 사용하지 않더라도  사용 가능
+타입확인을 통해 bug를 잡을 수 있도록 도와줄 수 있고 Flow나 Typescript와 달리 React에 내장되어 있으므로 바로 사용 가능
 
 > PropTypes
 

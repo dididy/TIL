@@ -2,7 +2,7 @@
 title: "About"
 path: "/about"
 ---
-# Today I Learned
+# About
 
 > 2020 06 15 ~
 

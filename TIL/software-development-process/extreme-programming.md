@@ -77,6 +77,6 @@ path: '/software-development-process/extreme-programming'
 - 테스트를 기반으로한 개발은 XP에서 가장 중요한 실천 방안중 하나이다. 테스트를 거치고 코딩을 하며 프로젝트를 개발해 나감
 
 > Pair Programming
-로
+
 - 두명 혹은 그 이상의 프로그래머가 함께 코딩을 하는 것을 말함
 - Driver와 Navigator로 역할로 나눠짐
