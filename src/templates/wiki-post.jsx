@@ -25,7 +25,7 @@ export default function Template({ data }) {
     <div>
       <Header onClickDrawerButton={() => handleClickDrawerButton()} />
       <Layout toggleDrawer={toggleDrawer} onClickDrawerButton={() => handleClickDrawerButton()}>
-        <Helmet title={`Wiki - ${post.frontmatter.title}`} />
+        <Helmet title={`${post.frontmatter.title}`} />
         <div>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </div>

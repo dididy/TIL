@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import IconButton from '@material-ui/core/IconButton';
+import {
+  Divider, Drawer, IconButton,
+} from '@material-ui/core';
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 import Sidebar from './sidebar';
 
@@ -40,29 +40,30 @@ const Layout = ({ children, toggleDrawer, onClickDrawerButton }) => (
     `}
     render={() => (
       <>
-        <div>
-          <Drawer
-            style={styles.drawer}
-            open={toggleDrawer}
-          >
-            <div className="sidebar">
-              <IconButton onClick={onClickDrawerButton}>
-                <ChevronLeftIcon />
-              </IconButton>
-            </div>
-            <Divider />
-            <Sidebar />
-          </Drawer>
-          <div style={styles.content}>
-            {children}
-            <hr />
-            <footer>
-              ©
-              {new Date().getFullYear()}
-              , Built with
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </footer>
+        <Drawer
+          style={styles.drawer}
+          open={toggleDrawer}
+          onEscapeKeyDown={onClickDrawerButton}
+          onBackdropClick={onClickDrawerButton}
+        >
+          <div className="sidebar">
+            <IconButton onClick={onClickDrawerButton}>
+              <ChevronLeftIcon />
+            </IconButton>
           </div>
+          <Divider />
+          <Sidebar />
+        </Drawer>
+        <div style={styles.content}>
+          {children}
+          <hr />
+          <footer>
+            ©
+            {new Date().getFullYear()}
+            , Built with
+            {' '}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </footer>
         </div>
       </>
     )}

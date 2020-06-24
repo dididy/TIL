@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { TreeView } from '@progress/kendo-react-treeview';
 import {
@@ -25,22 +24,6 @@ const NavItem = ({ item }) => {
   }
 
   return <p className="nav nav-directory">{directory}</p>;
-};
-
-NavItem.propTypes = {
-  item: PropTypes.shape({
-    directory: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-  }),
-};
-
-NavItem.defaultProps = {
-  item: PropTypes.shape({
-    directory: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-  }),
 };
 
 /**
