@@ -5,7 +5,7 @@ const config = {
 };
 
 module.exports = {
-  pathPrefix: '/',
+  pathPrefix: '/til',
   siteMetadata: {
     title: 'TIL',
     description: 'Today I Learned',
