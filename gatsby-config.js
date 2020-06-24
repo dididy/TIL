@@ -5,7 +5,7 @@ const config = {
 };
 
 module.exports = {
-  pathPrefix: '/til',
+  pathPrefix: '/',
   siteMetadata: {
     title: 'TIL',
     description: 'Today I Learned',
@@ -62,6 +62,7 @@ module.exports = {
         background_color: config.background_color,
         theme_color: config.theme_color,
         display: 'minimal-ui',
+        icon: `${__dirname}/src/images/icon.png`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
