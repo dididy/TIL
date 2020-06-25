@@ -1,6 +1,6 @@
 ---
 title: 'React'
-path: '/react'
+path: '/javascript/react'
 ---
 # React
 

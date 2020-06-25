@@ -23,7 +23,19 @@ path: '/tdd'
 - 렌더링된 결과물을 *이미지* 로 저장을 하여 픽셀을 하나하나 확인해서 모두 일치하는지 확인
   - 이 경우 스토리북 사용
 
-## React Testing Library
+> [BDD Style](https://github.com/ahastudio/til/blob/master/blog/2018/12-08-given-when-then.md)
+
+- Expected = 스펙, 기능, 작동, 행위 결정
+- 테스트를 위한 테스트를 만드는 것을 방지할 수 있음
+- 마법의 템플릿
+  - Given, When, Then => Describe(이런상황에서), Context(이렇게 하면), It(어떻게 되나?)
+- 사용자의 실제 사용하는 관점에서 실제 경험 위주로 테스트
+- describe : 여러개의 테스트 함수를 묶어줌 - given에 해당하는 것
+- context : when에 해당하는 것
+- it : then에 해당하는 것
+  - arrange, assert, act
+
+## React Testing Library - [example1](https://www.daleseo.com/react-testing-library/) / [example2](https://velog.io/@velopert/tdd-with-react-testing-library)
 
 > [Setup](https://testing-library.com/docs/react-testing-library/setup)
 
@@ -33,6 +45,7 @@ npm i -D jest babel-jest @types/jest @testing-library/react @testing-library/jes
 
 # execute
 npx jest --watchAll --coverage
+
 ```
 
 - `.eslintrc.js`의 `env` 객체에 `jest: true` 추가해야 jest에 대한 린트 옵션 동작
@@ -53,6 +66,8 @@ npx jest --watchAll --coverage
 
 - fireEvent 
   - 쿼리 함수로 선택된 영역을 대상으로로 특정 이벤트를 발생시키기 위한 이벤트 함수들을 담고 있음 
+  - `fireEvent.click(getByXxx)`
+  - `fireEvent.change(email, { target: { value: "user@test.com" } })`
 
 - render 
   - 인자로 렌더링할 React 컴포넌트를 넘겨 라이브러리가 제공하는 모든 쿼리 함수와 기타 유틸리티 함수를 담고있는 객체를 리턴함
@@ -65,9 +80,26 @@ npx jest --watchAll --coverage
 
 > [Queries](https://testing-library.com/docs/react-testing-library/cheatsheet)
 
-- getByText
-- getByLabelText
-- getByPlaceholderText
+- getByXxx()
+  - getByText : 정규식도 인자로 받을 수 있음
+  - getByAltText : `<img/>` 태그는 내부에 텍스트가 없기 때문에, 대신 alt 속성값을 이용
+  - getByLabelText
+  - getByPlaceholderText
+  - getByTestId : 태그에 data-testid 값을 설정하면 해당 태그의 존재 유무를 확인
+- queryByXxx()
+  - queryByText
+- findByXxx()
+
+> [Get from query selector and attribute](https://medium.com/@sgpropguide/react-testing-library-and-jest-testing-for-href-tag-6ecb7dfc018a)
+
+- `document.querySelector("something").getAttribute("something")`
+
+```javascript
+it("Component renders link to /somewhere", () => {
+  const { getByText } = render(<Component something="something" />)
+  expect(document.querySelector("a").getAttribute("href")).toBe("/somewhere")
+})
+```
 
 ## Jest
 
@@ -108,9 +140,13 @@ npx jest --watchAll --coverage
   - toMatch : 정규식 기반의 문자열 텐스트
 
 - toBeInTheDocument : 화면에 존재하는지 검증
-- toThrow : 예외 발생 여부 테스트 인자로 문자열을 넘기면 예외메시지, 정규식을 넘기면 정규식 체크
+- toBeNull : 
 - toEqual
+- toHaveAttribute : `toHaveAttribute("src", "https://something")`
 - ToHaveProperty
+- toHaveStyle : 해당 DOM 에 특정 스타일이 있는지 쉽게 확인
+- toHaveTextContent : 엘리먼트 속의 텍스트가 예상과 일치하는지 검증
+- toThrow : 예외 발생 여부 테스트 인자로 문자열을 넘기면 예외메시지, 정규식을 넘기면 정규식 체크
 
 > [Setup and teardown](https://jestjs.io/docs/en/setup-teardown)
 
@@ -124,9 +160,3 @@ npx jest --watchAll --coverage
 
 - only : 테스트 실행시 only만 실행
 - skip : 테스트 실행시 skip은 실행 안함
-
-> [BDD Style](https://github.com/ahastudio/til/blob/master/blog/2018/12-08-given-when-then.md)
-
-- describe : 여러개의 테스트 함수를 묶어줌 - given에 해당하는 것
-- context : when에 해당하는 것
-- it : then에 해당하는 것
