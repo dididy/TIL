@@ -24,24 +24,54 @@ path: "/javascript/redux"
 
 > [Action](https://redux.js.org/basics/actions)
 
+```javascript 
+
+// 일반적으로 이런 형태의 object
+{
+    type: "액션의 종류를 한번에 식별할 수 있는 문자열 혹은 심볼 - 대문자와 밑줄 조합",
+    payload: "액션의 실행에 필요한 임의의 데이터",
+}
+
+// 조금 편하게 샤용하려면 아래와 같이 상수와 함수로 준비
+export const ADD_VALUE = '@@myapp/ADD_VALUE';
+export const addValue = amount => ({type: ADD_VALUE, payload: amount});
+
+```
+
+- React 컴포넌트에서 Store 및 Store의 state에 접근하기 위해서는 Action을 거쳐야야만 함 - Event Driven
+  - Store에 대해 뭔가 하고 싶은 경우엔 Action 을 발행
+  - Store의 문지기가 Action의 발생을 감지하면, State가 갱신
 - 상태값은 오직 액션 객체에 의해서만 변경되어야 함
 - 액션 객체에는 type, payload 속성으로 구성되는데 type은 어떤 액션인지 구별할 수 있는 문자열 값이며 payload 안에는 변경할 상태값(불변 객체)이 전달
+  - type 필드는 필수적으로 가지고 있어야하고 그 외의 값들은 개발자 마음대로 넣어줄 수 있음
+- Action Creatior(Action 생성 함수)
+  - 액션을 만드는 함수, 단순히 파라미터를 받아와서 액션 객체 형태로 만들어줌
+
 
 > [Reducer](https://redux.js.org/basics/actions)
 
+- 함수형 프로그래밍에서의 Reducer는 합성곱을 의미
+  - Redux에 한해서는 아래와 같이 이전 상태와 Action을 합쳐, 새로운 state를 만드는 조작
+    - 초기상태는 Reducer의 디폴트 인수에서 정의
+    - 
 - 상태를 다른 상태로 바꿔주는 것
-
 - reducer는 이전 상태값과 액션 객체를 입력으로 받아서 새로운 상태값을 만드는 [순수 함수](https://en.wikipedia.org/wiki/Pure_function)
 - 순수 함수는 부수 효과(함수 외부의 상태를 변경시키는 것)를 발생시키지 않아야 함
 -  순수 함수는 같은 입력값에 대해 항상 같은 값을 반환
 
 > [Store](https://redux.js.org/basics/store)
 
+- 상태는 기본적으로 전부 여기서 집중관리 됨, 커다란 JSON의 결정체정도의 이미지
+
 - store는 리덕스의 상태값을 갖는 객체
-- 액션의 발생은 store의 dispatch 메서드로 시작됨
+- 현재의 앱 상태와, 리듀서가 들어가있고 추가적으로 몇가지 내장 함수 존재(dispatch, subscribe)
+  - subscribe 함수는 함수 형태의 값을 파라미터로 받음 
+    - 함수에 특정 함수를 전달해주면, 액션이 디스패치 되었을 때 마다 전달해준 함수가 호출
+  - 액션의 발생은 store의 dispatch 메서드로 시작됨
 - 스토어는 액션이 발생하면 미들웨어 함수(이번 주엔 등장하지 않음)를 실행
 - reducer를 실행해서 상태값을 새로운 값으로 변경
 - 첫 번째 원칙에서 말한 애플리케이션의 전체 상태값을 저장하는 하나의 객체가 바로 store
+
 
 > [Provider](https://react-redux.js.org/api/provider)
 
