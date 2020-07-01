@@ -27,6 +27,10 @@ path: '/tdd'
 
 - Expected = 스펙, 기능, 작동, 행위 결정
 - 테스트를 위한 테스트를 만드는 것을 방지할 수 있음
+- Red-Green-Refactoring
+  - Red - 실패하는 작은 테스트를 작성(최초에는 컴파일 조차 되지 않음)
+  - Green - 빨리 테스트가 통과하게 끔 수정(이를 위해선 어떠한 죄악도 용서됨)
+  - Refactoring - 모든 중복을 제거(2번에서 수행한 죄악들을 청산)
 - 마법의 템플릿
   - Given, When, Then => Describe(이런상황에서), Context(이렇게 하면), It(어떻게 되나?)
 - 사용자의 실제 사용하는 관점에서 실제 경험 위주로 테스트
@@ -115,6 +119,9 @@ it("Component renders link to /somewhere", () => {
 - jest.spyOn()
   - 어떤 객체에 속한 함수의 구현을 가짜로 대체하지 않고, 해당 함수의 호출 여부와 어떻게 호출되었는지만을 알아내야 할 경우
 
+- jest.mock()
+  - 매개변수와 같은 이름이 있는지 파일을 뒤져서 가져다 씀
+
 > [Using Matchers](https://jestjs.io/docs/en/using-matchers)
 
 - mocking
@@ -137,7 +144,7 @@ it("Component renders link to /somewhere", () => {
 
 - string
   - toBe : 문자열이 정확하게 일치하는가?
-  - toMatch : 정규식 기반의 문자열 텐스트
+  - toMatch : 정규식 기반의 문자열 텍스트
 
 - toBeInTheDocument : 화면에 존재하는지 검증
 - toBeNull : 
