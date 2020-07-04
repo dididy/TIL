@@ -59,6 +59,7 @@ export const addValue = amount => ({type: ADD_VALUE, payload: amount});
 - 순수 함수는 부수 효과(함수 외부의 상태를 변경시키는 것)를 발생시키지 않아야 함
 -  순수 함수는 같은 입력값에 대해 항상 같은 값을 반환
 
+
 > [Store](https://redux.js.org/basics/store)
 
 - 상태는 기본적으로 전부 여기서 집중관리 됨, 커다란 JSON의 결정체정도의 이미지
@@ -114,5 +115,16 @@ export const addValue = amount => ({type: ADD_VALUE, payload: amount});
 
 ---
 
+## Redux hooks
 
+> useSelector
 
+- 리덕스 스토어의 state에 접근할 수 있게 해줌
+```javascript
+const 결과 = useSelector(상태 선택 함수);
+```
+
+> useDispatch
+
+- dispatch 함수의 참조를 리턴하는 hooks
+- 컴포넌트 내부 에서 스토어의 내장 함수 dispatch를 사용할 수 있게 해줌
