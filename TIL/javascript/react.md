@@ -4,6 +4,8 @@ path: '/javascript/react'
 ---
 # React
 
+관심사의 분리(SoC : Separation of concerns)
+
 ## [Dom element](https://reactjs.org/docs/dom-elements.html)
 
 HTML과 다르게 작동하는 Attribute
@@ -149,4 +151,22 @@ MyComponent.propTypes = {
 > defaultProps
 
 - `props`의 초기값을 정의함
+
+## hooks
+
+> useEffect
+
+- useEffect 는 리액트 컴포넌트가 렌더링 될 때마다 특정 작업을 수행하도록 설정 할 수 있는 Hook
+- 클래스형 컴포넌트의 componentDidMount 와 componentDidUpdate 를 합친 형태
+- 두번째 파라미터에 따라 달라지는 실행되는 조건
+  - 빈 배열을 넣게되면 가장 처음 렌덜이 될 때만 실행됨
+  - 배열안에 특정 갚을 넣어주면 그 값이 업데이트 때만 실행됨
+- cleanup(뒷정리) 함수
+  - 언마운트되기 전이나, 업데이트 되기 직전에 어떠한 작업을 수행할 때 사용
+  - useEffect 내부에서 `return () => {}`
+  - 뒷정리 함수가 호출 될 때에는 업데이트 되기 직전의 값을 보여줌
+  - 두번째 파라미터에 빈 배열을 넣게되면 언마운트 될 때만 실행
+- 화면에 렌더링된 이후에 비동기로 처리되어야 하는 부수적인 효과들을 흔히 Side Effect라고 함
+  - 데이터를 비동기로 가져올 경우 
+- useEffect를 사용해서 리액트
 

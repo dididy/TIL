@@ -25,19 +25,23 @@ path: '/tdd'
 
 > [BDD Style](https://github.com/ahastudio/til/blob/master/blog/2018/12-08-given-when-then.md)
 
-- Expected = 스펙, 기능, 작동, 행위 결정
+- Expected - 스펙, 기능, 작동, 행위 결정
 - 테스트를 위한 테스트를 만드는 것을 방지할 수 있음
+- 사용자의 실제 사용하는 관점에서 실제 경험 위주로 테스트
 - Red-Green-Refactoring
-  - Red - 실패하는 작은 테스트를 작성(최초에는 컴파일 조차 되지 않음)
+  - Red 실패하는 작은 테스트를 작성(최초에는 컴파일 조차 되지 않음)
   - Green - 빨리 테스트가 통과하게 끔 수정(이를 위해선 어떠한 죄악도 용서됨)
   - Refactoring - 모든 중복을 제거(2번에서 수행한 죄악들을 청산)
-- 마법의 템플릿
-  - Given, When, Then => Describe(이런상황에서), Context(이렇게 하면), It(어떻게 되나?)
-- 사용자의 실제 사용하는 관점에서 실제 경험 위주로 테스트
-- describe : 여러개의 테스트 함수를 묶어줌 - given에 해당하는 것
-- context : when에 해당하는 것
-- it : then에 해당하는 것
-  - arrange, assert, act
+- BDD Patern
+  - describe-context-it
+    - describe :  설명할 텍스트 대상을 명시하는 것(여러개의 테스트 함수를 묶어줌)
+    - context : 대상이 놓인 상황을 설명
+    - it : 테스트 대상의 행동을 설명
+      - arrange, assert, act
+  - given-when-then
+    - given : 테스트 전의 상태(이런 상황에서)
+    - when : 테스트의 행위(이렇게 하면)
+    - then : 검증에 해당(어떻게 되나)
 
 ## React Testing Library - [example1](https://www.daleseo.com/react-testing-library/) / [example2](https://velog.io/@velopert/tdd-with-react-testing-library)
 
@@ -124,25 +128,25 @@ it("Component renders link to /somewhere", () => {
 
 > [Using Matchers](https://jestjs.io/docs/en/using-matchers)
 
-- mocking
+- `mocking`
   - toBeCalled
   - toBeCalledTimes : 몇번 호출되었는가
   - toBeCalledWith : 인자로 무엇이 넘어왔는가
 
-- true/false
+- `true/false`
   - toBeFalthy : 검증 대상이 False인지 검증
   - toBeTruthy : 검증 대상이 True인지 검증
 
-- array
+- `array`
   - toContain : 배열에 특정 원소가 들어있는지 체크
   - toContainEqual : 객체가 같은지 체크?
   - toHaveLength : 배열의 길이 체크
 
-- enabled/disabled
+- `enabled/disabled`
   - toBeEnabled : 활성화 되었는지 검증
   - toBeDisabled : 비활성화 되었는지 검증
 
-- string
+- `string`
   - toBe : 문자열이 정확하게 일치하는가?
   - toMatch : 정규식 기반의 문자열 텍스트
 
@@ -150,9 +154,9 @@ it("Component renders link to /somewhere", () => {
 - toBeNull : 
 - toEqual
 - toHaveAttribute : `toHaveAttribute("src", "https://something")`
-- ToHaveProperty
+- toHaveProperty
 - toHaveStyle : 해당 DOM 에 특정 스타일이 있는지 쉽게 확인
-- toHaveTextContent : 엘리먼트 속의 텍스트가 예상과 일치하는지 검증
+- toHaveTextContent : container 엘리먼트 속의 텍스트가 예상과 일치하는지 검증
 - toThrow : 예외 발생 여부 테스트 인자로 문자열을 넘기면 예외메시지, 정규식을 넘기면 정규식 체크
 
 > [Setup and teardown](https://jestjs.io/docs/en/setup-teardown)

@@ -1,11 +1,15 @@
+---
 title: "Redux"
 path: "/javascript/redux"
+---
 
 # Redux
 
+![](https://miro.medium.com/max/3200/1*XEVxovodur9doQW-GJ6MLA.gif)
+
 react + redux는 store로 상태를 관리하고 react는 상태를 보여주기 위한 용도로 사용 즉 상태 관리를 밖에서 함
 
-상태 관리르 위한 거대한 event loop
+상태 관리를 위한 거대한 event loop
 
 ## Concept
 
@@ -54,6 +58,7 @@ export const addValue = amount => ({type: ADD_VALUE, payload: amount});
 
 > [Reducer](https://redux.js.org/basics/actions) : event에 대한 반응
 
+- 액션 객체를 받으면 전달받은 액션의 타입에 따라 어떻게 상태를 업데이트 해야 할지 정의를 해줘야 할 때 업데이트 로직을 정의하는 함수
 - 파라미터로 state와 action을 받음
 - 함수형 프로그래밍에서의 Reducer는 합성곱을 의미
   - Redux에 한해서는 아래와 같이 이전 상태와 Action을 합쳐, 새로운 state를 만드는 조작
@@ -61,7 +66,14 @@ export const addValue = amount => ({type: ADD_VALUE, payload: amount});
 - 상태를 다른 상태로 바꿔주는 것
 - reducer는 이전 상태값과 액션 객체를 입력으로 받아서 새로운 상태값을 만드는 [순수 함수](https://en.wikipedia.org/wiki/Pure_function)
 - 순수 함수는 부수 효과(함수 외부의 상태를 변경시키는 것)를 발생시키지 않아야 함
--  순수 함수는 같은 입력값에 대해 항상 같은 값을 반환
+- 순수 함수의 조건
+  - 리듀서 함수는 이전 상태와 액션 객체를 매개변수로 받는다.
+  - 매개변수 외의 값에는 의존하면 안된다.
+  - 이전 상태는 건드리지 않고 변화를 준 새로운 상태 객체를 만들어서 반환한다.
+  - 똑같은 매개변수로 호출된 리듀서 함수는 언제나 같은 결과 값을 반환해야 한
+  - 순수 함수가 아니게 될 수 있는 것들은 함수 밖에서 처리해줘야 함
+- reducer에 테스트를 만드는 이유
+  - 
 
 
 > [Store](https://redux.js.org/basics/store)
@@ -74,6 +86,8 @@ export const addValue = amount => ({type: ADD_VALUE, payload: amount});
 - 현재의 앱 상태와, 리듀서가 들어가있고 추가적으로 몇가지 내장 함수 존재(`dispatch`, `subscribe`)
   - `subscribe` 함수는 함수 형태의 값을 파라미터로 받음 
     - 함수에 특정 함수를 전달해주면, 액션이 디스패치 되었을 때 마다 전달해준 함수가 호출
+    - subscribe 함수 안에 리스너 함수를 파라미터로 넣어서 호출해주면 이 리스너 함수가 액션이 디스패치되어 상태가 업데이트될 때마다 호출
+    - react-redux가 `subscribe`함
   - 액션의 발생은 store의 `dispatch` 메서드로 시작됨
 - 스토어는 액션이 발생하면 미들웨어 함수(이번 주엔 등장하지 않음)를 실행
 - reducer를 실행해서 상태값을 새로운 값으로 변경
