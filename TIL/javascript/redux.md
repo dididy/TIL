@@ -26,8 +26,8 @@ react + redux는 store로 상태를 관리하고 react는 상태를 보여주기
 > [3가지 원칙](https://redux.js.org/introduction/three-principles)
 
 - 전체 상태값을 하나의 객체에 저장
-- 상태값은 불변 객체
-- 상태값은 순수 함수에 칙해서만 변경되어야 함
+- 상태값(state)은 불변 객체(읽기 전용)
+- 변화를 일으키는 함수인 리듀서는 순수 함수여야
 
 > [Action](https://redux.js.org/basics/actions) : event
 
@@ -45,6 +45,7 @@ export const addValue = amount => ({type: ADD_VALUE, payload: amount});
 ```
 
 - 상태에 어떤 변화가 필요하게 될 때 애플리케이션의 상태를 어떻게 변경시킬지 추상화한 표현
+  - 객체 형태로 되어있음
 - React 컴포넌트에서 Store 및 Store의 state에 접근하기 위해서는 Action을 거쳐야야만 함 - Event Driven
   - Store에 대해 뭔가 하고 싶은 경우엔 Action 을 발행
   - Store의 문지기가 Action의 발생을 감지하면, State가 갱신
@@ -53,10 +54,11 @@ export const addValue = amount => ({type: ADD_VALUE, payload: amount});
   - type 필드는 필수적으로 가지고 있어야하고 그 외의 값들은 개발자 마음대로 넣어줄 수 있음
 - `Action Creator`(Action 생성 함수)
   - 액션을 만드는 함수, 단순히 파라미터를 받아와서 액션 객체 형태로 만들어줌
-  - 컴포넌트엣서 
+  - Action을 반환함
+  - 컴포넌트에서 더욱 쉽게 액션을 발생시키기 위해서 사용
 
 
-> [Reducer](https://redux.js.org/basics/actions) : event에 대한 반응
+> [Reducer](https://redux.js.org/basics/actions) : event에 대한 반응 - 변화를 일으키는 함수
 
 - 액션 객체를 받으면 전달받은 액션의 타입에 따라 어떻게 상태를 업데이트 해야 할지 정의를 해줘야 할 때 업데이트 로직을 정의하는 함수
 - 파라미터로 state와 action을 받음
@@ -73,7 +75,6 @@ export const addValue = amount => ({type: ADD_VALUE, payload: amount});
   - 똑같은 매개변수로 호출된 리듀서 함수는 언제나 같은 결과 값을 반환해야 한
   - 순수 함수가 아니게 될 수 있는 것들은 함수 밖에서 처리해줘야 함
 - reducer에 테스트를 만드는 이유
-  - 
 
 
 > [Store](https://redux.js.org/basics/store)
@@ -88,7 +89,9 @@ export const addValue = amount => ({type: ADD_VALUE, payload: amount});
     - 함수에 특정 함수를 전달해주면, 액션이 디스패치 되었을 때 마다 전달해준 함수가 호출
     - subscribe 함수 안에 리스너 함수를 파라미터로 넣어서 호출해주면 이 리스너 함수가 액션이 디스패치되어 상태가 업데이트될 때마다 호출
     - react-redux가 `subscribe`함
+      - `connect` 혹은 `useSelector` Hook을 사용하여 리덕스 스토어 상태에 구독
   - 액션의 발생은 store의 `dispatch` 메서드로 시작됨
+    - 액션을 `dispatch`의 파라미터로 전달하고 스토어는 리듀서 함수를 실행시켜 해당 액션을 처리하는 로직이 있다면 액션을 참고하여 새로운 상태를 만들어줌
 - 스토어는 액션이 발생하면 미들웨어 함수(이번 주엔 등장하지 않음)를 실행
 - reducer를 실행해서 상태값을 새로운 값으로 변경
 - 첫 번째 원칙에서 말한 애플리케이션의 전체 상태값을 저장하는 하나의 객체가 바로 store
@@ -103,6 +106,8 @@ export const addValue = amount => ({type: ADD_VALUE, payload: amount});
 ## [react-redux hook]([https://medium.com/@pks2974/redux-hook-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0-3b92b4d75466](https://medium.com/@pks2974/redux-hook-살펴보기-3b92b4d75466))
 
 > useDispatch
+
+- 리덕스 스토어의 dispatch 를 함수에서 사용 할 수 있게 해주는 Hook
 
 - React.useContext 으로 Provider 에서 정의한 contextValue 를 가져와 store.dispatch 를 반환
   - Context 에 포함된 dispatch 를 가져올 수 있음
