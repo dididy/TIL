@@ -1,7 +1,6 @@
 ---
 title: "Flutter basic"
-path: "/flutter/basic"
-published: false
+#path: "/flutter/basic"
 ---
 - router
   - Start

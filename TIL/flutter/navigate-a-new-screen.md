@@ -1,7 +1,6 @@
 ---
 title: "Navigate a new screen"
-path: "/flutter/navigate-a-new-screen"
-published: false
+#path: "/flutter/navigate-a-new-screen"
 ---
 # Navigate a new screen
 
