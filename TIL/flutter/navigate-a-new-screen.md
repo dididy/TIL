@@ -1,6 +1,7 @@
 ---
 title: "Navigate a new screen"
 path: "/flutter/navigate-a-new-screen"
+published: false
 ---
 # Navigate a new screen
 
@@ -13,7 +14,8 @@ Flutter에서는 어떤 방식을 사용해서 라우팅을 하는지 궁금하�
 플러터에서는 Navigator 클래스를 이용해 Stack 구조로 route를 관리 하게 된다. Swift에서와 비슷하게 push와 pop을 이용해서 해당 페이지로 넘어가거나 이전 페이지로 넘어오게 할 수 있다.
 
 > Navigator.push()
-​
+
+
 ```dart
 Navigator.push(context, 
   MaterialPageRoute<void>(builder: (BuildContext context) {
