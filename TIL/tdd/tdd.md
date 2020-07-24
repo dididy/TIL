@@ -53,7 +53,6 @@ npm i -D jest babel-jest @types/jest @testing-library/react @testing-library/jes
 
 # execute
 npx jest --watchAll --coverage
-
 ```
 
 - `.eslintrc.js`의 `env` 객체에 `jest: true` 추가해야 jest에 대한 린트 옵션 동작
@@ -88,12 +87,15 @@ npx jest --watchAll --coverage
 
 > [Queries](https://testing-library.com/docs/react-testing-library/cheatsheet)
 
-- getByXxx()
+- container : component가 마운트 된 DOM node에 대한 참조
+
+- getByXxx() : render API에서 꺼내 씀
   - getByText : 정규식도 인자로 받을 수 있음
   - getByAltText : `<img/>` 태그는 내부에 텍스트가 없기 때문에, 대신 alt 속성값을 이용
-  - getByLabelText
+  - getByLabelText : `<label />` 태그의 내용을 가져옴, label 태그는 htmlFor로 input의 id를 통해 연결함
   - getByPlaceholderText
   - getByTestId : 태그에 data-testid 값을 설정하면 해당 태그의 존재 유무를 확인
+  - 뒤에 `.value`를 붙이면 값을 얻을 수 있음 이 경우 `.toBe()` 매쳐와 조합하여 값 확인 가능
 - queryByXxx()
   - queryByText
 - findByXxx()
@@ -127,6 +129,8 @@ it("Component renders link to /somewhere", () => {
   - 매개변수와 같은 이름이 있는지 파일을 뒤져서 가져다 씀
 
 > [Using Matchers](https://jestjs.io/docs/en/using-matchers)
+
+- expect에 붙여서 사용함
 
 - `mocking`
   - toBeCalled

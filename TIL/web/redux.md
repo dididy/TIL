@@ -1,6 +1,6 @@
 ---
 title: "Redux"
-path: "/javascript/redux"
+path: "/web/redux"
 ---
 
 # Redux
