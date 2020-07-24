@@ -1,6 +1,6 @@
 ---
 title: "Web API"
-path: "/javascript/web-api"
+path: "/web/web-api"
 ---
 
 # Web API
