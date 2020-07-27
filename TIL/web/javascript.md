@@ -5,7 +5,9 @@ path: '/web/javascript'
 
 # Javascript
 
+### This
 
+> [im-D-team 첫주 발표자료](https://docs.google.com/presentation/d/1FJx2acuRHSjQ_9app2IdNt3jVuhAgppq2AqZpDCFqjo/edit?usp=sharing)
 
 ### Modern Javascript
 
@@ -119,3 +121,4 @@ path: '/web/javascript'
 ### Babel
 
 - Javascript 엔진은 브라우저마다 다르고 ES6 조차 지원하지 않는 브라우들이 있기 때문에 그러한 구형 브라우저에서 돌아갈 수 있도록 코드 자체를 변환함
+

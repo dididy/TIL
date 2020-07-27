@@ -170,3 +170,11 @@ MyComponent.propTypes = {
   - 데이터를 비동기로 가져올 경우 
 - useEffect를 사용해서 리액트
 
+### style
+
+> 스타일 객체를 여러개 적용해야 할 경우
+
+```javscript
+style={[<object>], [<another_object>]}
+```
+
