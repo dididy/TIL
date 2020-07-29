@@ -1,6 +1,6 @@
 ---
 title: 'AngelHack Seoul 2020 회고'
-path: '/retrospect/angelahck-seoul-2020'
+path: '/retrospect/2020-07-angelhack'
 ---
 
 ### AngelHack Seoul 2020 회고
