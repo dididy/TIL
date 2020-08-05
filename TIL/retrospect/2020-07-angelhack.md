@@ -9,7 +9,7 @@ path: '/retrospect/2020-07-angelhack'
 
 >  이미 한 번 경험해봤던 비대면 해커톤
 
-미국에 있을 때 MLH Backyard Hacks라는 비대면 해커톤에 참여한 경험이 있어서 앤젤핵 해커톤에도 거리낌없이 참가신청을 했다. MLH Backyard Hacks 에서는 기후, 거리 등을 고려해 하이킹 하기 좋은 스팟을 찾아주는 플랫폼 HikeGest를 개발했다. 해당 해커톤 행사용 디스코드 팀빌딩 채널에서 만나 같이 개발했던 유일한 팀원인 Travis가 노드 익스프레스와 파이어스토어 스택으로 백쪽을 맡았고 내가 리엑트 스택으로 프론트 작업을 진행했다. 2박 3일 개발자 둘이서 작업한 것 치고 처음에 의도했던 동작이 잘 되긴 했지만 디자인 등 퀄리티가 좋지 못하다 판단해 리포지토리는 비공개로 해두었다. 그 당시에 작업한 것이 어떤 프로젝트였는지 궁금하면 [Devpost](https://devpost.com/software/hikegest)를 확인하면 된다.
+미국에 있을 때 MLH [Backyard Hacks](https://organize.mlh.io/participants/events/3466-backyardhacks) 라는 비대면 해커톤에 참여한 경험이 있어서 앤젤핵 해커톤에도 거리낌없이 참가신청을 했다. 그 당시 해커톤에서는 기후, 거리 등을 고려해 하이킹 하기 좋은 스팟을 찾아주는 플랫폼 HikeGest를 개발했다.  해커톤 디스코드 팀빌딩 채널에서 만나 같이 개발했던 유일한 팀원인 Travis가 노드 익스프레스와 파이어스토어 스택으로 백쪽을 맡았고 내가 리엑트 스택으로 프론트 작업을 진행했다. 2박 3일 개발자 둘이서 작업한 것 치고 처음에 의도했던 동작이 잘 되긴 했지만 디자인 등 퀄리티가 좋지 못하다 판단해 리포지토리는 비공개로 해두었다. 그 당시에 작업한 것이 어떤 프로젝트였는지 궁금하면 [Devpost](https://devpost.com/software/hikegest)를 확인하면 된다.
 
 > 팀빌딩과 작업 진행
 
@@ -36,27 +36,29 @@ path: '/retrospect/2020-07-angelhack'
 - 언제나 느끼지만 아이디어를 도출하고 다듬는 과정은 쉽지 않은 것 같다. 하지만 비즈니스로서 가치가 추가되는 등 점진적으로 정교화 시키며 날카롭게 만드는 것은 정말 재미있는 것 같다.
 
 - 개발자 입장에서 와이어프레임을 먼저 그리고 작업하는 것이 모두에게 효율적이라는 것을 배웠다. 
+
 - [UI에 대한 레퍼런스](https://www.hotjar.com/)를 정하고 시작하면 좋을 수 있다.
 
 - SCSS를 이용한 스타일링이 왜 효율적일 수 있는지를 배웠다.
-  - 추가적으로 [flexible 레이아웃을 이용한 스타일링](https://naradesign.github.io/article/flex-justify-align.html)에 대해서 다시한번 익숙해졌다.
-
+  
+- 추가적으로 [flexible 레이아웃을 이용한 스타일링](https://naradesign.github.io/article/flex-justify-align.html)에 대해서 다시한번 익숙해졌다.
+  
 - fontawesome을 왜 프로젝트에 주로 쓰는지 이해할 수 있었다. 또한 프로젝트 빌드 시 고려해야 할 부분도 알게되었다.
 
 - 객체의 특성을 활용해 조건부 컴포넌트 렌더링의 의도를 드러내게끔 코드를 작성하는 방식에 대해서 배웠다.
 
-```javascript
-const MODE_INTERVIEW = 0;
-const MODE_REVIEW = 1;
-const MODE_NOT_STARTED = 1;
-
-...
-{
-  [MODE_INTERVIEW]: (Component1),
-  [MODE_REVIEW]: (Component2),
-  [MODE_NOT_STARTED]: (Component3)
-}[mode]
-```
+  ```javascript
+  const MODE_INTERVIEW = 0;
+  const MODE_REVIEW = 1;
+  const MODE_NOT_STARTED = 1;
+  
+  ...
+  {
+    [MODE_INTERVIEW]: (Component1),
+    [MODE_REVIEW]: (Component2),
+    [MODE_NOT_STARTED]: (Component3)
+  }[mode]
+  ```
 
 ---
 
@@ -69,9 +71,9 @@ const MODE_NOT_STARTED = 1;
 
 - 내가 JS에 대해 이해하고 있는 부분이 너무 얕다는 것을 알게되었다.
 
-- 데모 영상 찍으면서 정했던 시나리오인 스택 2개로 큐 구현하는 것에 대해서 익숙해질 수 있었다.
+- 데모 영상 찍으면서 정했던 시나리오인 스택 2개로 큐를 구현하는 것에 대해서 익숙해질 수 있었다.
 
-- 폭죽 이벤트 등 동적인 것들은 따로 구성해서 iframe을 활용해 적용하면 훨씬 쉽게 할 수 있음을 알게되었다.
+- 폭죽 이벤트 등 동적인 것들은 따로 구성해서 iframe을 활용하면 훨씬 쉽게 적용 할 수 있음을 알게되었다.
 
 - etc:  [canva](https://www.canva.com/), [reallygreatsite](www.reallygreatsite.com), [아이디어 불패의 법칙](https://docs.google.com/presentation/d/1JYAgNjdiCR3CC3xuRaMnfDC3-NpHkgIPDOiAD_NnOcI/edit#slide=id.g8b3dc7b853_5_49)
 

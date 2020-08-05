@@ -11,6 +11,8 @@ path: '/git'
 git pull origin pull/<number>/head:pr-<number>
 ```
 
+---
+
 ### [issue label 등록 자동화](https://douglascayers.com/2019/08/01/how-to-export-and-import-github-issue-labels-between-projects/)
 
 - 등록하고싶은 issue label이 있는 페이지에서 개발자 도구로 아래의 코드를 실행
@@ -82,4 +84,27 @@ newWindow.onload = function something() {
   labels.forEach((label) => createOrUpdate(label));
 }
 ```
+
+---
+
+### heroku
+
+- heroku에서
+  - git push heroku $(git subtree split --prefix=backend $(git symbolic-ref --short -q HEAD)):master --force
+
+```
+git push heroku yourbranch:master
+```
+
+Showing results for [#200 ***error\*** react](https://www.google.com/search?rlz=1C5CHFA_enKR842KR842&q=%23200+error+react&spell=1&sa=X&ved=2ahUKEwjO1-uu4vjqAhWhLqYKHbnQBOIQkeECKAB6BAgSECU)
+Search instead for [#200 eror react](https://www.google.com/search?rlz=1C5CHFA_enKR842KR842&q=%23200+eror+react&nfpr=1&sa=X&ved=2ahUKEwjO1-uu4vjqAhWhLqYKHbnQBOIQvgUoAXoECBIQJg)
+
+# Search Results
+
+## Web results
+
+[
+Minified React error #200 ](https://forum.freecodecamp.org/t/minified-react-error-200/281378)
+
+
 

@@ -6,6 +6,17 @@ path: '/web/react'
 
 관심사의 분리(SoC : Separation of concerns)
 
+> react가 dom보다 빠른게 아님
+
+- 유지보수가 되는 웹을 만드는것을 도와줌
+- react는 성능 최적화를 도와줌
+  - reconciliation(재조정)을 잘 고려해야 함
+  - 데이터의 분별성
+- React의 props와 state 비교 로직은 얕은 비교
+- shouldComponentUpdate 작성, 혹은  PureComponent 활용
+
+
+
 ## [Dom element](https://reactjs.org/docs/dom-elements.html)
 
 HTML과 다르게 작동하는 Attribute
@@ -154,6 +165,8 @@ MyComponent.propTypes = {
 
 ## hooks
 
+hooks의 state 또한 immutable임
+
 > useEffect
 
 - useEffect 는 리액트 컴포넌트가 렌더링 될 때마다 특정 작업을 수행하도록 설정 할 수 있는 Hook
@@ -169,6 +182,58 @@ MyComponent.propTypes = {
 - 화면에 렌더링된 이후에 비동기로 처리되어야 하는 부수적인 효과들을 흔히 Side Effect라고 함
   - 데이터를 비동기로 가져올 경우 
 - useEffect를 사용해서 리액트
+
+> useMemo
+
+- props를 넘겨줄 때 memoization 간편 사용 가능
+- 의존성이 변경되었을 때에만 메모이제이션 된 값만 다시 계산
+
+> useCallback
+
+- useMemo()의 핸들러 버전으로 메모이제이션된 함수를 가져옴 - 메모이제이션의 값이 변경되는 시점은 함수인자가 아닌 의존성 배열 형태로 받아서 판단
+
+> useRef
+
+- state의 값이 최신이어야 할 때 사용
+- 일종의 인스턴스
+- 내용이 변경될 때 그것을 알려주지는 않음
+
+> useSelector
+
+> useReducer
+
+> useContext
+
+### 퓨어 컴포넌트
+
+- 상태를 관리하지 않는 컴포넌트와 관리하는 컴포넌트 
+
+- jsx에서 virtual dom 자체를 업데이트 하는 것 조차도 싫은 경우 
+  - virtual dom tree를 바뀌지 않게 해줌
+  - export default React.memo(); 이렇게 해주면 됨
+  - props가 바뀔때만 재렌더링 아닌면 그냥 cache된 걸 보여줌
+    - 커다라고 복잡한거 만들 때 쓰면 퍼포먼스에 좋음
+  - Rcview, 
+  - ReviewForm, 
+    - handlechange, handlesubmit은 RestaurntContainer가 호출될 때 마다 매번 만들어 줌
+      - 그래서 useCallback으로 함수 자체를 memoize 해줌
+      - useEffect 처럼 인자로 바뀌는 값만 포함 - dispatch가 바뀔 때 마다
+  - useMemo
+    - 복잡한 계산
+  - virtual dom은 브라우저 연산을 거치지 않고 메모리에 dom을 그림
+
+> React.memo()
+
+- 사소한 변경에 모든 컴포넌트가 렌더링 하면 성능저하 발생
+  - class형 컴포넌트에서는 shouldComponentUpdate를 사용
+  - Pure componenet의 경우 useMemo를 사용
+- memo는 기본적으로 shallow comparison을 수행
+  - 원시자료형(Primitive Type)의 경우 동일한 props로 동일한 결과를 렌더링해낸다면, React.memo를 호출하고 결과를 메모이징(Memoizing)하도록 래핑하여 경우에 따라 성능 향상 
+- 경우에 따라서 deep comparison을 수행하도록 구현할 수 있음(props이 객체인 경우)
+
+  - 비교함수가 
+    - true를 반환하면 이전의 값이 기억되어서 재렌더링을 막아주고
+    - false를 반환하면 새로운 상태로 인식하고 해당 컴포넌트를 재렌더링하게 됨
 
 ### style
 

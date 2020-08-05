@@ -21,7 +21,7 @@ path: "/web/web-api"
 
 - 이전에 URL.createObjectURL()로 생성한 객체 URL을 취소
 
-### MediaRecoder
+### MediaRecorder
 
 - WIP
 

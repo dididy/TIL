@@ -79,6 +79,8 @@ export const addValue = amount => ({type: ADD_VALUE, payload: amount});
 
 > [Store](https://redux.js.org/basics/store)
 
+- 단일 객체 저장소이며 action을 가지고 dispatch를 가지고 reducer로 넘겨줌
+
 - 애플리케이션의 상태를 저장하고 읽을 수 있게 하며 액션을 보내거나 상태의 변화를 감지할 수 있도록 API를 제공하는 객체
 - state와 reducer, 내장 함수들이 들어있음
 - 상태는 기본적으로 전부 여기서 집중관리 됨, 커다란 json의 결정체
@@ -149,6 +151,16 @@ export const addValue = amount => ({type: ADD_VALUE, payload: amount});
 const 결과 = useSelector(상태 선택 함수);
 ```
 
+- useSelector에서 (state => {loginFields: state.loginFields})가 (get('loginFields')) 이렇게 변할 수 있음
+
+```javascript
+export function get(key) {
+	return (objc) => obj[key];
+}
+```
+
+---
+
 > useDispatch
 
 - dispatch 함수의 참조를 리턴하는 hook
@@ -173,3 +185,50 @@ action이 dispatch 되어서 reducer에서 이를 처리하기 전에 미리 지
 
 - Action creator가 액션을 반환하는 대신 함수를 dispatch 함
 - 특정 액션이 실행되는 것을 지연시키거나 특정한 조건이 충족될  때만 액션이 실행될 수 있음
+
+- 스토어를 세팅 할 때 미들웨어를 쓸 수 있음
+- createStore할 때 미들웨어를 넣는 방식
+- useEffect에서 바로 dispatch
+- action을 넣어주면 리듀서가 기존상태에서 새로운 상태로 바뀌는데
+- 알아서 dispatch가 비동기 처리를 해주고 상태를 업데이트 해주는게 redux thunk
+- 비동기 action을 만들 수 있는데 비동기 함수를 주면 됨
+  - 객체가 아닌 함수를 돌려 줌
+  - actions에 함수를 만드는데 함수의 인자에 dispatch를 던져줘서 사용 가능
+- `__fixture__` : 반복되는 변수은 fixture를 씀
+
+###Redux tookit
+
+> slice
+
+- slice를 사용하면 엄청나게 단순하게 만들 수 있음
+
+- slice에 action creator와 reducer 및 action의 정의까지 한번에 할 수 있음
+
+- slice엔 actions와 reducer가 있음
+
+- `import { createSlice } from '@reduxjs/toolkit';`
+
+- initialState와 reducer 가져오기
+
+- reducer.js에서 import { reducer } from './slice'
+
+- export default reducer 남기기
+
+- action도 비동기로 처리하는 외에 것들은 다 빼줌
+
+- `import {actions} from './slice';`
+
+- `export const { setRegions, setCategory, setRestaurant, ... }`
+
+- 여러개 잡힐 수 있기 때문에 name/setAccessToken
+
+- payload 안에서 꺼내 쓸 수 있게
+
+- regions를 넣음
+
+> [] dcuks pattern ](https://github.com/JisuPark/ducks-modular-redux)
+
+- 파일 하나에서 모든것을 관리
+
+- reducer와 action의 연결이 중요했지만 지금은 파일 하나에서 
+

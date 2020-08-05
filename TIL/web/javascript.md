@@ -9,6 +9,30 @@ path: '/web/javascript'
 
 > [im-D-team 첫주 발표자료](https://docs.google.com/presentation/d/1FJx2acuRHSjQ_9app2IdNt3jVuhAgppq2AqZpDCFqjo/edit?usp=sharing)
 
+### window
+
+> window.open(<url>)
+
+- `const newWindow = window.open(<url>);` 형태로 사용하면 `newWindow` 객체로 새로 띄운 창에대한 조작이 가능
+- 두번째 인자로 `"new"`를 주면 새창에서 url 페이지를 보여줌
+
+> onload()
+
+- `newWindow.onload = function something () {};` 형태로 사용하면 해당 객체가 포함된 창의 로딩이 끝난 뒤에 함수 실행 가능
+
+> window.location
+
+window.location : 현재 어디에 있는지 확인 가능
+
+`const { location: { pathname } } = window;`
+
+```
+const MyComponent = {
+	'/': HomePage,
+	'/restaurants': RestaurantsPage,
+}[pathname] || NotFoundPage;
+```
+
 ### Modern Javascript
 
 > let, const
@@ -56,7 +80,49 @@ path: '/web/javascript'
 > ES8 - async/await
 
 - 비동기 처리 메서드가 꼭 프로미스 객체를 반환해야 await이 의도한 대로 동작함
+- promise로 .then()하는건 번거로웠던 것을 편리하게 해줌
 - try/catch로 에러처리 가능
+
+> [sort, splice, slice / filter, map, reduce](https://github.com/CodeSoom/week2-assignment-2/pull/15#issuecomment-643542178)
+
+- sort, splice, slice는 기존의 배열에 영향을 줌
+- fliter, map, reduce는 새로운 배열을 반환
+  - 왜 쓰는가? : 함수형 프로그래밍은 가능한 한 상태 변경을 피하고자 하며 함수 간의 데이터 흐름을 사용하기 때문에 새로운 배열을 반환하는 것
+  - react에서 원소를 제거 할 때 state 의 배열에 직접 접근하면 안 되고, 배열을 복사한 후 원소 제거 후 기존 값에 덮어씌워져야함
+    - state에 push, pop, shite 등의 원본 변형 메소드를 사용하면 안됨(immutable의 중요성) 
+      - Vitural DOM에 영향을 주게됨
+
+```javascript
+function deleteTodo(passedKey) {
+    setState({
+      todo:  state.todo.splice(passedKey, 1),
+    });
+}
+function deleteTodo(passedKey) {
+  const array = state.todo.filter((i, key) => (key !== passedKey));
+  setState({
+    todo: array,
+  });
+}
+```
+
+---
+
+> etc
+
+```javsscript
+() => {
+	return {
+	  ...
+	}
+}
+
+() => ({
+  ...
+})
+```
+
+
 
 그외에도 default parameter, template literal, generator
 
@@ -95,8 +161,79 @@ path: '/web/javascript'
     - useMemo, useCallback으로 값과 함수에 대한 메모이제이션 가능
       - 첫 번째 인자 : ~
       - 두 번째 인자 : 변경 여부를 평가하는 값들의 배열
-      - 만일 불변성이 보장되지 않은 값들이나 children과 같은 ReactElement를 받아와서 사용한다면 **최적화가 의미가 없는 결과가 됨**
-- [WIP](https://velog.io/@yejinh/useCallback과-React.Memo을-통한-렌더링-최적화) 
+      - 만일 불변성이 보장되지 않은 값들이나 children과 같은 ReactElement를 받아와서 사용한다면 **최적화가 의미가 없는 결과가 됨
+
+
+
+> Object.assign과 srpead
+
+- Object.assgin
+
+  - 소스 객체의 프로퍼티들을 타겟 객체로 복사하여 반환
+
+  - 파라미터로는 저장될 타켓 객체, 소스가될 객체
+
+    - 소스가 될 객체는 여러개가 되어도 되지만 deep merge가 아닌 shallow merge
+
+      - 일치하는 key가 있으면 해당 key의 value만 바뀜
+
+        ```javascript
+        const A1 = {
+          B: {
+            C: 'A1.B.C'
+          }
+        };
+        
+        const A2 = {
+          B: {
+            D: 'A2.B.D'
+          }
+        };
+        
+        console.log(Object.assign(A1, A2));
+        /* 실제 결과
+        {
+          B: {
+            D: 'A2.B.D'
+          }
+        }
+        */
+        /* 의도했던 결과
+        {
+          B: {
+            C: 'A1.B.C',
+            D: 'A2.B.D'
+          }
+        }
+        */
+        // spread를 사용해도 같은 결과가 나옴
+        // 어떻게 해결할까? 
+        // 1. loadash merge 사용
+        // 2. npm 라이브러리인 deepmerge 사용
+        // 3. https://gist.github.com/ahtcx/0cd94e62691f539160b32ecda18af3d6
+        // ref : https://blog.ull.im/engineering/2019/04/01/javascript-object-deep-copy.html
+        ```
+
+---
+
+- spread
+  - Object.assign과 동일한 효과
+  - 객체 앞에 ...을 붙여주면 됨
+  - 배열에서도 사용 가능
+- 공통점
+  - 동일한 기능을 함
+  - shallow copy가 됨
+
+> shallow copy와 참조의 차이
+
+- 참조는 `const ref = obj;` 같이 `=` 를 사용하여 함
+- shallow copy는 `Object.assign` 혹은 `...` 을 사용
+- 참조는 단순한 참조임
+  - 메모리 힙에 생성된 객체를 단순히 참조하는 것
+- shallow copy는 새로운 객체에 프로퍼티를 복사하는 것 
+  - 여전히 해당 객체를 참조하는게 맞지만 프로퍼티가 복사된다는 차이점이 있음
+
+
 
 ### Axios vs Fetch
 

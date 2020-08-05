@@ -5,6 +5,26 @@ path: '/tdd'
 
 # TDD
 
+### Test 종류
+
+> e2e 테스트
+
+> 통합 test
+
+> unit test
+
+> 생각해봐야 할 것
+
+- 이걸 검증해서 무엇을 얻는가?
+- 극단적인 테스트도 좋지만 투자 대비 효율을 생각해야 함
+  - 어느수준으로 해야 내가 이 프로그램을 믿을 수 있는가?
+
+- 기능목록(Behavior)을 만들어서 개발
+- 사용법을 우선으로 하는 테스트 작성
+- 테스트가 외부에 의존하면 안됨
+  - 데이터를 요청하고 받아오는건 프론트에서 테스트하지 않음
+  - 외부 URL을 사용할 경우 서버가 깨지면 테스트도 다 깨짐
+
 ## Test 작성
 
 > 어떻게? 
@@ -38,7 +58,7 @@ path: '/tdd'
     - context : 대상이 놓인 상황을 설명
     - it : 테스트 대상의 행동을 설명
       - arrange, assert, act
-  - given-when-then
+  - [given-when-then](https://martinfowler.com/bliki/GivenWhenThen.html)
     - given : 테스트 전의 상태(이런 상황에서)
     - when : 테스트의 행위(이렇게 하면)
     - then : 검증에 해당(어떻게 되나)
@@ -167,11 +187,25 @@ it("Component renders link to /somewhere", () => {
 
 - 반복작업 
   - beforeEach : 테스트 함수가 실행되기 전에 매번 실행
-  - afterEach : 테스트 함수가 실행된 후에 매번 실행
+    - dispatch가 하나인데 우연찮게 여러번 호출되는 경우
 
+      - beforeEach에 dispatch.mockClear()를 해줘야 함
+  - afterEach : 테스트 함수가 실행된 후에 매번 실행
+  
 - 오직 한번만 
   - beforeAll : 맨 처음에 한번 실행
   - after All : 맨 끝에 한번 실행
 
 - only : 테스트 실행시 only만 실행
 - skip : 테스트 실행시 skip은 실행 안함
+
+> .mock
+
+- jest.mock('react-redux')가 `__mocks__` 폴더의 react-redux의 것을 가져옴
+- 그렇다면 .mock은 무엇인가? 
+  - 외부 모듈을 모킹할 수 있음
+
+> fixtures
+
+- 테스트에 넣을 고정된 값
+- src 상위 폴더에 만들어서 넣음
