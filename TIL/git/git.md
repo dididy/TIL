@@ -15,9 +15,10 @@ git pull origin pull/<number>/head:pr-<number>
 
 ### [issue label 등록 자동화](https://douglascayers.com/2019/08/01/how-to-export-and-import-github-issue-labels-between-projects/)
 
-- 등록하고싶은 issue label이 있는 페이지에서 개발자 도구로 아래의 코드를 실행
-- name, description, color의 key로 구성된 객체형태로 생성함
-- 해당 객체를 이용해 TARGET_URL 리포지토리에 issue label 자동으로 등록해줌
+- 등록하고싶은 issue label이 있는 GtiHub 페이지에서 개발자 도구로 아래의 코드를 실행
+  - 실행에 앞서 TARGET_URL을 설정해야 함
+  - name, description, color의 key로 구성된 객체형태로 생성함
+  - 해당 객체를 이용해 TARGET_URL 리포지토리에 issue label 자동으로 등록해줌
 
 ```javascript
 const TARGET_URL = "https://github.com/<repository>/labels";
@@ -88,23 +89,14 @@ newWindow.onload = function something() {
 ---
 
 ### heroku
+> master가 아닌 브랜치를 heroku에 push하고 싶은 경우
 
-- heroku에서
-  - git push heroku $(git subtree split --prefix=backend $(git symbolic-ref --short -q HEAD)):master --force
-
-```
+```bash
 git push heroku yourbranch:master
 ```
 
-Showing results for [#200 ***error\*** react](https://www.google.com/search?rlz=1C5CHFA_enKR842KR842&q=%23200+error+react&spell=1&sa=X&ved=2ahUKEwjO1-uu4vjqAhWhLqYKHbnQBOIQkeECKAB6BAgSECU)
-Search instead for [#200 eror react](https://www.google.com/search?rlz=1C5CHFA_enKR842KR842&q=%23200+eror+react&nfpr=1&sa=X&ved=2ahUKEwjO1-uu4vjqAhWhLqYKHbnQBOIQvgUoAXoECBIQJg)
+> master가 아닌 subtree 브랜치를 heroku에 push하고 싶은 경우
 
-# Search Results
-
-## Web results
-
-[
-Minified React error #200 ](https://forum.freecodecamp.org/t/minified-react-error-200/281378)
-
-
-
+```bash
+git push heroku $(git subtree split --prefix=backend $(git symbolic-ref --short -q HEAD)):master --force
+```

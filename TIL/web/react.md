@@ -15,8 +15,6 @@ path: '/web/react'
 - React의 props와 state 비교 로직은 얕은 비교
 - shouldComponentUpdate 작성, 혹은  PureComponent 활용
 
-
-
 ## [Dom element](https://reactjs.org/docs/dom-elements.html)
 
 HTML과 다르게 작동하는 Attribute
@@ -243,3 +241,6 @@ hooks의 state 또한 immutable임
 style={[<object>], [<another_object>]}
 ```
 
+### react-router-dom
+
+https://stackoverflow.com/questions/43209666/react-router-v4-cannot-get-url
