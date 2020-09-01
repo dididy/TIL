@@ -38,16 +38,18 @@ path: "/about"
 
 >  `2020.03 - 2020.07 : 4개월` | Backend Engineer Intern | SanDiego, California
 
+- 충남대학교 소프트웨어 중심대학 사업단: [MI-333 프로그램](https://www.cs-cnu.org/%EC%82%B0%ED%95%99%ED%98%91%EB%A0%A5-%EC%9D%B8%ED%84%B4%EC%8B%AD)을 통해 해외인턴십 기회를 얻음
 - Acumatica ERP based flask web app
   - flask web app의 기능 추가 및 개선
   - Acumatica ERP endpoint 정책에 맞춰 flask web app 구조 및 모델 변경
   - Acumatica ERP에 CSV, Excel 형식의 데이터 업로드를 자동화 할 수 있는 python 프로그램 개발
-- 코로나 사태로 인한 조기귀국 결정
+- 코로나가 겉잡을 수 없을 정도로 심해져 조기귀국 결정
 
 ### ENERZAi (http://enerzai.com/)
 
 >  `2019.12 - 2020.02 : 2개월` | Frontend Engineer Intern
 
+- 부스트코스 에이스: [부스트 커리어데이](https://www.facebook.com/boostcourse.connect/posts/1130207014034211/)를 통해 인턴십 기회를 얻음
 - ZAILAs
   - jQuery, Django 기반의 프로젝트의 새로운 기능 추가 및 개선
   - 기존의 프로젝트를 React 기반으로 마이그레이션 하는 작업 진행
@@ -85,11 +87,12 @@ path: "/about"
 
 ### 고양이 모래색 변화를 이용한 건강 체크 앱
 
-`2020.06.26 - 8.18` | [GitHub repo](https://github.com/petlab-dev/app-prototype작
+`2020.06.26 - 8.18` | [GitHub repo](https://github.com/petlab-dev/app-prototype)
 
 - 구현 목표 : 특수한 처리를 한 고양의 모래의 색 변화를 감지해서 건강 상태를 알 수 있도록 하는 어플리케이션 제작
-- 사용 기술 : Expo(React Native), Storybook, Emotion, React Navigation, Context API, Firebase, Google Cloud Vision API, Naver Cloud Platform
+- 사용 기술 : Expo(React Native), Storybook, Emotion, React Navigation, Context API, Firebase
 - Retrospect
+  - 창업동아리가 2018년에 이어 올해 두번째로 `예비창업자 패키지`에 선정됨
   - CodeSoom에서 배운 내용들을 Petlab에 새로 들어온 팀원들과 함께 적용
   - Issue와 PR review-based process를 활용함
   - View에 대한 부분을 팀원들이 Storybook으로 만들어두면 내가 그걸 활용해서 비즈니스 로직을 덧붙이는 방식으로 진행
@@ -98,9 +101,9 @@ path: "/about"
 
 ### P2P 코딩인터뷰 매칭 플랫폼(면접관 입장에서의 반면교사)
 
-`2020. 07. 13 - 19` | [GitHub repo](https://github.com/angelhack-2020-grey-cereal/cod-in) | [deployed](https://codin-64json.endpoint.ainize.ai/) | [pitch / demo video](https://www.youtube.com/watch?v=MCcuj5_UE9Y&feature=youtu.be)
+`2020.07.13 - 19` | [GitHub repo](https://github.com/angelhack-2020-grey-cereal/cod-in) | [deployed](https://codin-64json.endpoint.ainize.ai/) | [pitch / demo video](https://www.youtube.com/watch?v=MCcuj5_UE9Y&feature=youtu.be)
 
-- 구현 목표 : 면접을 앞둔 취준생(개발자 - 코딩인터뷰)들이 지원자, 면접관 입장으로 면접을 할 수 있도록 매칭해주는 플랫폼 제작
+- 구현 목표 : 코딩인터뷰를 앞둔 개발자들이 지원자, 면접관 입장으로 면접을 할 수 있도록 매칭해주는 플랫폼 제작
 - 사용 기술 : React, MediaDevices, MediaRecorder Web API, Quill, Monaco, Github Actions, Ainaize
 - Retrospect
   - [AngelHack Seoul 2020 회고](https://dididy.github.io/til/retrospect/2020-07-angelhack)
@@ -213,7 +216,7 @@ path: "/about"
 `2019.06.07` | [GitHub repo](https://github.com/block-project/papago-slack-bot)
 
 - 구현 목표 : **한-핀 공동 해커톤** 대비 핀란드 학생들과 원활한 의사소통을 위한 번역봇 개발
-- 사용 기술 : bothub, Papgo NMT API
+- 사용 기술 : bothub, Papago NMT API
 - Restrospect
   - 내가 영어를 잘 하지 못해 급하게 여러 예제들을 참고해서 만들었는데 만드는 과정이 재미있었음
   - 실제로 핀란드 가서 핀란드인 팀원과 소통하는 데 도움을 많이 받음
@@ -406,9 +409,9 @@ path: "/about"
 
 ## > Speech
 
-- [im-D-team: javascript 논리연산자에 대해 발표](https://github.com/im-d-team/Dev-Docs/blob/20200830/dididy/Javascript/%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0%EC%9E%90.md)
-- [im-D-team: javascript prototype에 대해 발표](https://github.com/im-d-team/Dev-Docs/blob/20200803/dididy/Javascript/prototype(2).md)
-- [im-D-team: javascript this에 대해 발표](https://docs.google.com/presentation/d/1FJx2acuRHSjQ_9app2IdNt3jVuhAgppq2AqZpDCFqjo/edit?usp=sharing)
+- [im-d-team: javascript 논리연산자에 대해 발표](https://github.com/im-d-team/Dev-Docs/blob/20200830/dididy/Javascript/%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0%EC%9E%90.md)
+- [im-d-team: javascript prototype에 대해 발표](https://github.com/im-d-team/Dev-Docs/blob/20200803/dididy/Javascript/prototype(2).md)
+- [im-d-team: javascript this에 대해 발표](https://docs.google.com/presentation/d/1FJx2acuRHSjQ_9app2IdNt3jVuhAgppq2AqZpDCFqjo/edit?usp=sharing)
 - [Ubuntu 기초 사용법 워크숍 발표](https://github.com/dididy/ubuntu-basic)
 
 ---

@@ -25,3 +25,6 @@ path: "/web/web-api"
 
 - WIP
 
+### MediaDevices
+
+- WIP

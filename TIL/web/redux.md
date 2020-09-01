@@ -196,7 +196,7 @@ action이 dispatch 되어서 reducer에서 이를 처리하기 전에 미리 지
   - actions에 함수를 만드는데 함수의 인자에 dispatch를 던져줘서 사용 가능
 - `__fixture__` : 반복되는 변수은 fixture를 씀
 
-###Redux tookit
+### Redux tookit
 
 > slice
 
@@ -226,9 +226,6 @@ action이 dispatch 되어서 reducer에서 이를 처리하기 전에 미리 지
 
 - regions를 넣음
 
-> [] dcuks pattern ](https://github.com/JisuPark/ducks-modular-redux)
+> [dcuks pattern](https://github.com/JisuPark/ducks-modular-redux)
 
 - 파일 하나에서 모든것을 관리
-
-- reducer와 action의 연결이 중요했지만 지금은 파일 하나에서 
-

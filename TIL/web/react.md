@@ -178,7 +178,7 @@ hooks의 state 또한 immutable임
   - 뒷정리 함수가 호출 될 때에는 업데이트 되기 직전의 값을 보여줌
   - 두번째 파라미터에 빈 배열을 넣게되면 언마운트 될 때만 실행
 - 화면에 렌더링된 이후에 비동기로 처리되어야 하는 부수적인 효과들을 흔히 Side Effect라고 함
-  - 데이터를 비동기로 가져올 경우 
+  - 데이터를 비동기로 가져올 경우
 - useEffect를 사용해서 리액트
 
 > useMemo
@@ -204,15 +204,15 @@ hooks의 state 또한 immutable임
 
 ### 퓨어 컴포넌트
 
-- 상태를 관리하지 않는 컴포넌트와 관리하는 컴포넌트 
+- 상태를 관리하지 않는 컴포넌트와 관리하는 컴포넌트
 
-- jsx에서 virtual dom 자체를 업데이트 하는 것 조차도 싫은 경우 
+- jsx에서 virtual dom 자체를 업데이트 하는 것 조차도 싫은 경우
   - virtual dom tree를 바뀌지 않게 해줌
   - export default React.memo(); 이렇게 해주면 됨
   - props가 바뀔때만 재렌더링 아닌면 그냥 cache된 걸 보여줌
-    - 커다라고 복잡한거 만들 때 쓰면 퍼포먼스에 좋음
-  - Rcview, 
-  - ReviewForm, 
+    - 커다라고 복잡한거 만들 때 사용하면 퍼포먼스에 좋음
+  - Rcview,
+  - ReviewForm,
     - handlechange, handlesubmit은 RestaurntContainer가 호출될 때 마다 매번 만들어 줌
       - 그래서 useCallback으로 함수 자체를 memoize 해줌
       - useEffect 처럼 인자로 바뀌는 값만 포함 - dispatch가 바뀔 때 마다
@@ -229,7 +229,7 @@ hooks의 state 또한 immutable임
   - 원시자료형(Primitive Type)의 경우 동일한 props로 동일한 결과를 렌더링해낸다면, React.memo를 호출하고 결과를 메모이징(Memoizing)하도록 래핑하여 경우에 따라 성능 향상 
 - 경우에 따라서 deep comparison을 수행하도록 구현할 수 있음(props이 객체인 경우)
 
-  - 비교함수가 
+  - 비교함수가
     - true를 반환하면 이전의 값이 기억되어서 재렌더링을 막아주고
     - false를 반환하면 새로운 상태로 인식하고 해당 컴포넌트를 재렌더링하게 됨
 
@@ -237,9 +237,11 @@ hooks의 state 또한 immutable임
 
 > 스타일 객체를 여러개 적용해야 할 경우
 
-```javscript
+```
 style={[<object>], [<another_object>]}
 ```
+
+---
 
 ### react-router-dom
 

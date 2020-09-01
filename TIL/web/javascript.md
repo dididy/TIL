@@ -5,9 +5,18 @@ path: '/web/javascript'
 
 # Javascript
 
-### This
+### 논리연산자
 
-> [im-D-team 첫주 발표자료](https://docs.google.com/presentation/d/1FJx2acuRHSjQ_9app2IdNt3jVuhAgppq2AqZpDCFqjo/edit?usp=sharing)
+- [im-d-team: javascript 논리연산자에 대해 발표](https://github.com/im-d-team/Dev-Docs/blob/20200830/dididy/Javascript/%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0%EC%9E%90.md)
+
+### prototype
+
+- [im-d-team: javascript prototype에 대해 발표](https://github.com/im-d-team/Dev-Docs/blob/20200803/dididy/Javascript/prototype(2).md)
+
+
+### this
+
+-  [im-d-team: javascript this에 대해 발표](https://docs.google.com/presentation/d/1FJx2acuRHSjQ_9app2IdNt3jVuhAgppq2AqZpDCFqjo/edit?usp=sharing)
 
 ### window
 
@@ -26,7 +35,7 @@ window.location : 현재 어디에 있는지 확인 가능
 
 `const { location: { pathname } } = window;`
 
-```
+```javscript
 const MyComponent = {
 	'/': HomePage,
 	'/restaurants': RestaurantsPage,
@@ -183,13 +192,13 @@ function deleteTodo(passedKey) {
             C: 'A1.B.C'
           }
         };
-        
+
         const A2 = {
           B: {
             D: 'A2.B.D'
           }
         };
-        
+
         console.log(Object.assign(A1, A2));
         /* 실제 결과
         {

@@ -27,7 +27,7 @@ path: '/tdd'
 
 ## Test 작성
 
-> 어떻게? 
+> 어떻게?
 
 - 구현 전에 이런 요청을 하면 이런 결과가 나왔으면 하는 소망을 코드로 작성
 - 작업을 하나씩 나눠서 각 작업이 잘 이뤄지는지를 확인
@@ -91,12 +91,12 @@ npx jest --watchAll --coverage
 
 > [API](https://testing-library.com/docs/react-testing-library/api)
 
-- fireEvent 
-  - 쿼리 함수로 선택된 영역을 대상으로로 특정 이벤트를 발생시키기 위한 이벤트 함수들을 담고 있음 
+- fireEvent
+  - 쿼리 함수로 선택된 영역을 대상으로로 특정 이벤트를 발생시키기 위한 이벤트 함수들을 담고 있음
   - `fireEvent.click(getByXxx)`
   - `fireEvent.change(email, { target: { value: "user@test.com" } })`
 
-- render 
+- render
   - 인자로 렌더링할 React 컴포넌트를 넘겨 라이브러리가 제공하는 모든 쿼리 함수와 기타 유틸리티 함수를 담고있는 객체를 리턴함
 
 - cleanup
@@ -175,7 +175,7 @@ it("Component renders link to /somewhere", () => {
   - toMatch : 정규식 기반의 문자열 텍스트
 
 - toBeInTheDocument : 화면에 존재하는지 검증
-- toBeNull : 
+- toBeNull
 - toEqual
 - toHaveAttribute : `toHaveAttribute("src", "https://something")`
 - toHaveProperty
@@ -185,14 +185,14 @@ it("Component renders link to /somewhere", () => {
 
 > [Setup and teardown](https://jestjs.io/docs/en/setup-teardown)
 
-- 반복작업 
+- 반복작업
   - beforeEach : 테스트 함수가 실행되기 전에 매번 실행
     - dispatch가 하나인데 우연찮게 여러번 호출되는 경우
 
       - beforeEach에 dispatch.mockClear()를 해줘야 함
   - afterEach : 테스트 함수가 실행된 후에 매번 실행
-  
-- 오직 한번만 
+
+- 오직 한번만
   - beforeAll : 맨 처음에 한번 실행
   - after All : 맨 끝에 한번 실행
 
@@ -202,7 +202,7 @@ it("Component renders link to /somewhere", () => {
 > .mock
 
 - jest.mock('react-redux')가 `__mocks__` 폴더의 react-redux의 것을 가져옴
-- 그렇다면 .mock은 무엇인가? 
+- 그렇다면 .mock은 무엇인가?
   - 외부 모듈을 모킹할 수 있음
 
 > fixtures
