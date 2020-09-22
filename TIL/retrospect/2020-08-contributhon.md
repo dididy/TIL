@@ -58,7 +58,7 @@ Handler function for onClick prop key must begin with '(handle|on|set)'  react/j
 ```
 
 #### `eventHandlerPrefix`
-- event handlers로서 사용되는 component method의 prefix. handle이 기본값이다로
+- event handlers로서 사용되는 component method의 prefix. handle이 기본값이다.
 - `props={<something>}`에서 `<something>`에 해당하는 부분 즉, propValue의 prefix를 판별한다.
  
 #### `eventHandlerPropPrefix`
@@ -67,15 +67,15 @@ Handler function for onClick prop key must begin with '(handle|on|set)'  react/j
 
 #### `checkLocalVariables`
 - 로컬 변수로 저장된 event handlers의 확인 여부 결정. false가 기본값이다.
-- member expression이 존재하지 않아도 되는 상황 즉, local variable을 사용해도 되는지 판별한다. 
+- member expression이 존재하지 않아도 되는 상황 즉, local variable을 사용해도 되는지 판별한다.
 - jsx-handler-name 규칙과 직접적인 연관이 없으므로 에러메시지가 존재하지 않는다.
 
 새로운 옵션인 **checkInlineFunction**은 checkLocalVariable옵션과 같은 이유로 에러메시지가 존재하지 않아야 한다. 또한 해당 옵션을 통해 arrow function이 사용 가능할지 여부를 결정할 수 있게끔 코드를 구현하면 된다.
 
 ### 3.  코드 분석
-내가 이슈를 해결하기위해 아래의 3가지 파일을 수정해야했다. 
+이슈를 해결하기위해 아래의 3가지 파일을 수정해야했다.
 
-1. [`lib/rules/jsx-handler-names.js`](https://github.com/yannickcr/eslint-plugin-react/blob/master/lib/rules/jsx-handler-names.js) 
+1. [`lib/rules/jsx-handler-names.js`](https://github.com/yannickcr/eslint-plugin-react/blob/master/lib/rules/jsx-handler-names.js)
     - 규칙이 동작하는 로직이 포함된 구현체이다.
     - 아래와 같이 3가지 동작을 한다.
       1. 사용자가 설정한 option을 받아온다.
@@ -83,11 +83,11 @@ Handler function for onClick prop key must begin with '(handle|on|set)'  react/j
       3. 규칙을 위반했다면 위반했다고 report한다.
 
  2. [`tests/lib/rules/jsx-handler-names.js`](https://github.com/yannickcr/eslint-plugin-react/blob/master/tests/lib/rules/jsx-handler-names.js)
-    - 규칙이 실제로 동작하는지 확인하는 테스트코드이다. 
+    - 규칙이 실제로 동작하는지 확인하는 테스트코드이다.
     - valid는 린트 에러가 발생하지 않는 올바른 코드에 대한 테스트 케이스이다.
     - invalid는 린트 에러가 발생해야하는 잘못된 코드에 대한 테스트 케이스이다.
 
- 3. [`docs/rules/jsx-handler-names`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md) 
+ 3. [`docs/rules/jsx-handler-names`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md)
     - 새로 만들 옵션에 대한 설명을 [Rule Options](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md#rule-options)에 추가해야 한다.
 
 ### 4. checkInlineFunction 옵션을 위한 코드 작성
@@ -120,7 +120,7 @@ Handler function for onClick prop key must begin with '(handle|on|set)'  react/j
 
 > checkLocalVariable옵션이 커져있고 arrow function인 경우 arrow function 구조에 맞는 AST를 사용하게끔 하는 삼항연산자를 추가하였고 중복을 피하도록 expression 변수를 생성하였다.
 
-[테스트코드](https://github.com/yannickcr/eslint-plugin-react/pull/2761/commits/9eb81bc121d3ebe2709f9b2595424b996fb18326#diff-f64bbbbda77b9ea03a7f46dd9319e497)는 [checkLocalVariable옵션이 추가된 PR](https://github.com/yannickcr/eslint-plugin-react/pull/2474)을 참고하여 케이스를 나눠 작성하였다. 이슈를 다 해결했다고 생각할 때 쯤 다른 테스트코드를 살펴보며 불가능한 케이스가 있다는걸 알게되었고 [잘못된 부분](https://github.com/yannickcr/eslint-plugin-react/commit/cde22634e8bc1dc0a00fbc22c45e156ec227f011#diff-ccf82a24ec6f364517e4d1f4aed7a0a8R84)을 바로잡을 수 있었다. `.replace(/^this\.|.*::/, '');`와 AST를 활용해 간결하게 해결할 수 있었는데 케이스를 일일이 나눠서 생각하려고 해서 생긴 문제였다. 문제를 해결한 뒤 기존에 불가능했던 케이스에 대한 테스트코드도 추가하였다. 
+[테스트코드](https://github.com/yannickcr/eslint-plugin-react/pull/2761/commits/9eb81bc121d3ebe2709f9b2595424b996fb18326#diff-f64bbbbda77b9ea03a7f46dd9319e497)는 [checkLocalVariable옵션이 추가된 PR](https://github.com/yannickcr/eslint-plugin-react/pull/2474)을 참고하여 케이스를 나눠 작성하였다. 이슈를 다 해결했다고 생각할 때 쯤 다른 테스트코드를 살펴보며 불가능한 케이스가 있다는걸 알게되었고 [잘못된 부분](https://github.com/yannickcr/eslint-plugin-react/commit/cde22634e8bc1dc0a00fbc22c45e156ec227f011#diff-ccf82a24ec6f364517e4d1f4aed7a0a8R84)을 바로잡을 수 있었다. `.replace(/^this\.|.*::/, '');`와 AST를 활용해 간결하게 해결할 수 있었는데 케이스를 일일이 나눠서 생각하려고 해서 생긴 문제였다. 문제를 해결한 뒤 기존에 불가능했던 케이스에 대한 테스트코드도 추가하였다.
 
 작업 중간에 코드가 완성되지 않은 상태에서 멘토님에게 코드리뷰를 부탁하기 위해 origin에 PR을 하려고 하였으나.. 실수로 upstream에 PR을 하는 상황이 발생했다. 바로 close를 했는데 메인테이너분께서 이슈가 해결되면 새로 PR을 열기보다는 해당 PR을 open해서 진행해달라는 comment를 주셨다. commit log가 `wip`로 되어있는 상황이라 어떻게 할지 고민했다. `git commit --amend`를 이용해 해결할 수 있긴 하지만 force push를 해도 되는건지 궁금했는데 merge된 PR들을 훑어보니 force push를 일반적으로 사용하고 있었고, 메인테이너가 [force push를 권장](https://github.com/yannickcr/eslint-plugin-react/pull/2474#issuecomment-546660629)하고있는 comment 발견하여 안심하고 force push를 이용해 문제를 해결했다.
 
@@ -161,7 +161,7 @@ npx mocha ./tests/lib/rules/jsx-handler-names.js --inpect-brk
 테스트코드를 확인하다가 위와같이 handler의 function 이름에 `::`이 붙는 경우를 접하게 되었다. 처음보는 문법이라 당황했는데 ES7에 추가된 [function의 bind를 위한 syntax](http://blog.jeremyfairbank.com/javascript/javascript-es7-function-bind-syntax/)라는 사실을 알게되었다. 해당 syntax에 대해 [AST explorer](https://astexplorer.net/)로 구조를 확인하려면 parser를 @babel/parser로 설정해야만 한다.
 
 ### Code Review
-오픈소스이기 때문에 근본적으로 많은 사람들과 협업을 위한 좋은 코드를 작성해야만 한다. eslint-plugin-react의 코드들을 살펴보면서 명확하지 않은 부분들에 대해 컨벤션을 참고해가면서 작업을 진행하였다. 멘토님께서 중복을 피하도록 중복되는 부분을 함수화 시키면 좋을 것 같다는 의견을 주셨고 이를 적용하였다. 메인테이너 분께서는 삼항연산자에 대한 부분의 코딩 스타일에 대한 부분과 member expression이 겹치는 것을 변수로 빼서 중복을 줄이도록 코드를 수정해주셨다.
+오픈소스이기 때문에 근본적으로 많은 사람들과 협업을 위한 좋은 코드를 작성해야 한다. eslint-plugin-react의 코드들을 살펴보면서 명확하지 않은 부분들에 대해 컨벤션을 참고해가면서 작업을 진행하였다. 멘토님께서 중복을 피하도록 중복되는 부분을 함수화 시키면 좋을 것 같다는 의견을 주셨고 이를 적용하였다. 메인테이너 분께서는 삼항연산자에 대한 부분의 코딩 스타일에 대한 부분과 member expression이 겹치는 것을 변수로 빼서 중복을 줄이도록 코드를 수정해주셨다.
 
 ---
 

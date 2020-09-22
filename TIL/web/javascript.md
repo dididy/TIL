@@ -5,18 +5,21 @@ path: '/web/javascript'
 
 # Javascript
 
+### WebRTC
+- [im-d-team: WebRTC에 대해 발표](https://github.com/im-d-team/Dev-Docs/blob/20200927/Javascript/WebRTC.md)
+
 ### 논리연산자
 
-- [im-d-team: javascript 논리연산자에 대해 발표](https://github.com/im-d-team/Dev-Docs/blob/20200830/dididy/Javascript/%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0%EC%9E%90.md)
+- [im-d-team: JavaScript 논리연산자에 대해 발표](https://github.com/im-d-team/Dev-Docs/blob/20200830/dididy/Javascript/%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0%EC%9E%90.md)
 
 ### prototype
 
-- [im-d-team: javascript prototype에 대해 발표](https://github.com/im-d-team/Dev-Docs/blob/20200803/dididy/Javascript/prototype(2).md)
+- [im-d-team: JavsScript Prototype에 대해 발표](https://github.com/im-d-team/Dev-Docs/blob/20200803/dididy/Javascript/prototype(2).md)
 
 
 ### this
 
--  [im-d-team: javascript this에 대해 발표](https://docs.google.com/presentation/d/1FJx2acuRHSjQ_9app2IdNt3jVuhAgppq2AqZpDCFqjo/edit?usp=sharing)
+-  [im-d-team: JavsScript this에 대해 발표](https://docs.google.com/presentation/d/1FJx2acuRHSjQ_9app2IdNt3jVuhAgppq2AqZpDCFqjo/edit?usp=sharing)
 
 ### window
 
@@ -33,13 +36,16 @@ path: '/web/javascript'
 
 window.location : 현재 어디에 있는지 확인 가능
 
-`const { location: { pathname } } = window;`
 
-```javscript
+```javascript
+const { location: { pathname } } = window;
+```
+```javascript
 const MyComponent = {
-	'/': HomePage,
-	'/restaurants': RestaurantsPage,
+  '/': HomePage,
+  '/restaurants': RestaurantsPage,
 }[pathname] || NotFoundPage;
+
 ```
 
 ### Modern Javascript
@@ -119,7 +125,7 @@ function deleteTodo(passedKey) {
 
 > etc
 
-```javsscript
+```javascript
 () => {
 	return {
 	  ...

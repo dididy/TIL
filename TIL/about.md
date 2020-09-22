@@ -24,8 +24,8 @@ path: "/about"
   - self motivation
 
 - **Education**
-  - [Chungnam National University](https://plus.cnu.ac.kr/html/en/) (only 1 semester remained)
-  - [Daejeon University](https://www.dju.ac.kr/foreign/eng/html/main.htm) (GPA: 4.27/4.5, Transferred to Chungnam National University)
+  - `2019.03 - 2021.02` | [Chungnam National University](https://plus.cnu.ac.kr/) | Only 1 semester remained
+  - `2017.03 - 2019.02` | [Daejeon University](https://www.dju.ac.kr/) | GPA: 4.27/4.5 | Transferred to CNU
 
 - **Military service**
   - service completed
@@ -76,13 +76,13 @@ path: "/about"
 
 ## > Project
 
-### 습호
+### Meditect
 
-`2020.07.13 -` | [GitHub repo](https://github.com/meiday-dev/seup-ho-specification)
+`2020.07.13 -` | [GitHub repo](https://github.com/meiday-dev/meditect_app)
 
-- 구현 목표 : Meiday에서 제작하는 온도와 습도 관리가 가능한 약통과 블루투스로 연결하는 어플리케이션 제작
+- 구현 목표 : Meiday의 온도와 습도 관리가 가능한 약통과 블루투스로 연결하는 어플리케이션 제작
 - 사용 기술 : Flutter, Node.js
-- Retrospect
+- Retrospec의
   - WIP
 
 ### 고양이 모래색 변화를 이용한 건강 체크 앱
@@ -103,7 +103,7 @@ path: "/about"
 
 `2020.07.13 - 19` | [GitHub repo](https://github.com/angelhack-2020-grey-cereal/cod-in) | [deployed](https://codin-64json.endpoint.ainize.ai/) | [pitch / demo video](https://www.youtube.com/watch?v=MCcuj5_UE9Y&feature=youtu.be)
 
-- 구현 목표 : 코딩인터뷰를 앞둔 개발자들이 지원자, 면접관 입장으로 면접을 할 수 있도록 매칭해주는 플랫폼 제작
+- 구현 목표 : 코딩인터뷰를 앞둔 개발직무 취준생들이 각각 지원자, 면접관 입장에서 면접연습을 할 수 있도록 매칭해주는 플랫폼 제작
 - 사용 기술 : React, MediaDevices, MediaRecorder Web API, Quill, Monaco, Github Actions, Ainaize
 - Retrospect
   - [AngelHack Seoul 2020 회고](https://dididy.github.io/til/retrospect/2020-07-angelhack)
@@ -159,7 +159,7 @@ path: "/about"
   - Dialogflow로 프론트단과 자연어 처리된 것을 묶는 경험을 한 부분이 좋았음
 - `최우수상(서울시장상)` 수상
 
-### 부스트코스 에이스
+### 부스트코스 에이스 - iOS
 
 #### > 허니비즈:띵동 기업프로젝트
 
